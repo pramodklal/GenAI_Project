@@ -1,0 +1,56 @@
+# Healthcare Digital - Agentic AI System
+
+# Python package requirements for the Healthcare Digital Agentic AI System.
+
+## Core Dependencies - Multi-Agent Framework
+# Option 1: Microsoft Agent Framework (use --pre flag when installing)
+# agent-framework-azure-ai>=1.0.0b251216  # Microsoft Agent Framework with Azure AI integration
+
+# Option 2: LangGraph (recommended for flexibility)
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langchain-community>=0.3.0
+
+# Common dependencies
+azure-identity>=1.15.0
+pydantic>=2.0.0
+openai>=1.0.0
+# azure-ai-inference is optional - only needed for specific Azure AI features
+# azure-ai-inference>=1.0.0b9
+
+## Data Science & ML
+scikit-learn>=1.4.0
+numpy>=1.24.0
+pandas>=2.0.0
+lightgbm>=4.0.0
+
+## API & Web
+fastapi>=0.109.0
+uvicorn>=0.27.0
+httpx>=0.26.0
+
+## UI
+streamlit>=1.31.0
+plotly>=5.18.0
+
+## Database
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+redis>=5.0.0
+cassandra-driver>=3.29.0  # Astra DB Cassandra driver
+astrapy>=1.0.0  # Astra DB Vector Search
+python-dotenv>=1.0.0  # Environment variable management
+
+## Monitoring & Logging
+prometheus-client>=0.19.0
+python-json-logger>=2.0.0
+
+## Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0
+
+## Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0.0

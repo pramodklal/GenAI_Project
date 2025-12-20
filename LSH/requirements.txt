@@ -38,8 +38,8 @@ plotly>=5.18.0
 sqlalchemy>=2.0.0
 psycopg2-binary>=2.9.0
 redis>=5.0.0
-cassandra-driver>=3.29.0  # Astra DB Cassandra driver
-astrapy>=1.0.0  # Astra DB Vector Search
+# cassandra-driver>=3.29.0  # Not needed if using astrapy
+astrapy>=1.4.0  # Astra DB Data API (Vector Search included)
 python-dotenv>=1.0.0  # Environment variable management
 
 ## Monitoring & Logging

@@ -1,1 +1,26 @@
-langchain
+# Healthcare Digital - Universal Requirements
+# Works on both Streamlit Cloud and Localhost
+
+# Core UI Framework
+streamlit==1.31.0
+
+# Database - CRITICAL
+astrapy==1.4.0
+python-dotenv==1.0.1
+
+# AI/LLM - Essential
+openai==1.30.0
+
+# Data Processing
+pandas==2.1.4
+numpy==1.26.3
+
+# Visualization
+plotly==5.18.0
+
+# Utilities
+pydantic==2.5.3
+httpx==0.26.0
+
+# NOTE: Your custom agents don't need langchain/langgraph
+# For full development features (optional), use: pip install -r requirements-local.txt

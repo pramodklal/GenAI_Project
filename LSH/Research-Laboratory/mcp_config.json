@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "research-laboratory": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "cwd": "d:\\GenAI_Project_2025\\HealthCareDigital\\Research-Laboratory",
+      "env": {
+        "PYTHONPATH": "d:\\GenAI_Project_2025\\HealthCareDigital\\Research-Laboratory"
+      }
+    }
+  }
+}

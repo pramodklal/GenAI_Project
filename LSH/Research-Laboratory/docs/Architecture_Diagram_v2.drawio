@@ -1,0 +1,220 @@
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram name="Research Laboratory Architecture 2025" id="architecture-v2">
+    <mxGraphModel dx="2400" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Research Laboratory - Professional AI Architecture (Dec 2025)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="10" width="800" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="subtitle" value="Streamlit UI | 6 AI Agents (GPT-4o) | MCP Protocol | Astra DB | Vector Search (1536D)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="50" width="800" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- UI Layer -->
+        <mxCell id="ui-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="1500" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-layer-title" value="📱 UI LAYER - Streamlit (ui/ folder)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="400" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-app" value="🏠 app.py&#xa;Main Entry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-page1" value="🔬 Research&#xa;Projects" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="240" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-page2" value="🏥 Clinical&#xa;Trials" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="400" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-page3" value="💊 Drug&#xa;Discovery" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="560" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-page4" value="🧪 Lab&#xa;Experiments" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="720" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-page5" value="📤 CSV&#xa;Import" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="880" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="ui-page6" value="📊 Analytics&#xa;(Coming)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- AI Agents Layer -->
+        <mxCell id="agents-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="50" y="270" width="1500" height="160" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="agents-layer-title" value="🤖 AI AGENTS LAYER - OpenAI GPT-4o (src/agents/ folder)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="280" width="500" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="agent1" value="🏥 Clinical Trial&#xa;Agent&#xa;&#xa;Trial Analysis,&#xa;Protocol Compliance,&#xa;Reports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="330" width="135" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="agent2" value="💊 Drug Discovery&#xa;Agent&#xa;&#xa;Candidate Analysis,&#xa;Molecular Search,&#xa;Pipeline Eval" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="235" y="330" width="135" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="agent3" value="🧪 Lab Experiment&#xa;Agent&#xa;&#xa;Result Analysis,&#xa;Protocol Suggestions,&#xa;Progress Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="390" y="330" width="135" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="agent4" value="📚 Research Pub&#xa;Agent&#xa;&#xa;Paper Search,&#xa;Summarization,&#xa;Trend Analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="545" y="330" width="135" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="agent5" value="⚖️ Patent Analysis&#xa;Agent&#xa;&#xa;Patent Search,&#xa;Landscape Analysis,&#xa;Patentability" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="700" y="330" width="135" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="agent6" value="📊 Research Analytics&#xa;Agent&#xa;&#xa;Dashboard Metrics,&#xa;Executive Reports,&#xa;Bottlenecks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="855" y="330" width="135" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- MCP Layer -->
+        <mxCell id="mcp-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="50" y="460" width="1500" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-layer-title" value="🔌 MCP SERVER LAYER - Model Context Protocol (src/mcp_servers/ folder)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="470" width="600" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-base" value="⚙️ base_mcp_server.py&#xa;&#xa;Base MCP Class&#xa;Error Handling&#xa;Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="180" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-research" value="🔬 research_project_mcp.py&#xa;&#xa;Project CRUD Tools&#xa;Query, Create, Update" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="280" y="520" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-todo1" value="🏥 clinical_trial_mcp.py&#xa;(To Create)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="500" y="520" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-todo2" value="💊 drug_discovery_mcp.py&#xa;(To Create)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="680" y="520" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-todo3" value="📊 analytics_mcp.py&#xa;(To Create)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="860" y="520" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-main" value="🔌 mcp_server.py (Root)&#xa;&#xa;Main MCP Server&#xa;18 Tools&#xa;API Access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="520" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Database Layer -->
+        <mxCell id="db-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="50" y="630" width="1500" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="db-layer-title" value="💾 DATABASE LAYER - Astra DB (src/database/ folder)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="640" width="500" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="db-helper" value="🗄️ AstraDBHelper&#xa;(astra_helper.py)&#xa;&#xa;• Database Connection&#xa;• Collection Management&#xa;• CRUD Operations&#xa;• Vector Search&#xa;• Query Functions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="680" width="220" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="db-regular" value="📁 Regular Collections (7)&#xa;&#xa;research_projects, clinical_trials, drug_candidates, lab_experiments, research_compounds, trial_participants, research_publications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82B366;verticalAlign=top;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="320" y="680" width="380" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="db-vector" value="🔍 Vector Collections (3) - 1536D&#xa;&#xa;molecular_structures ($vector),&#xa;research_papers ($vector),&#xa;patent_documents ($vector)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;verticalAlign=top;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="720" y="680" width="320" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Utilities Layer -->
+        <mxCell id="utils-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAC8D3;strokeColor=#23445D;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="1500" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="utils-layer-title" value="🛠️ UTILITIES LAYER (src/utils/ folder)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="810" width="400" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="utils-validators" value="✅ validators.py&#xa;&#xa;Data Validation Functions&#xa;Input Sanitization&#xa;Date Range Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAC8D3;strokeColor=#23445D;verticalAlign=top;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="850" width="200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="utils-todo" value="(More utilities to be added)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="300" y="850" width="200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- External Services -->
+        <mxCell id="external-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="50" y="930" width="1500" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="external-title" value="🌐 EXTERNAL SERVICES" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="940" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="external-openai" value="🤖 OpenAI API&#xa;&#xa;GPT-4o Model&#xa;text-embedding-3-small&#xa;1536D Embeddings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="980" width="200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="external-astra" value="☁️ DataStax Astra DB&#xa;&#xa;Serverless Database&#xa;Vector Search&#xa;Data API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;verticalAlign=top;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="300" y="980" width="200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Folder Structure -->
+        <mxCell id="folder-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="100" width="340" height="800" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="folder-title" value="📂 FOLDER STRUCTURE" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="110" width="340" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="folder-structure" value="Research-Laboratory/&#xa;├── ui/&#xa;│   ├── app.py&#xa;│   └── pages/&#xa;│       ├── 1_Research_Projects.py&#xa;│       ├── 2_Clinical_Trials.py&#xa;│       ├── 3_Drug_Discovery.py&#xa;│       ├── 4_Lab_Experiments.py&#xa;│       └── 5_CSV_Import.py&#xa;│&#xa;├── src/&#xa;│   ├── agents/ (6 agents)&#xa;│   │   ├── clinical_trial_agent.py&#xa;│   │   ├── drug_discovery_agent.py&#xa;│   │   ├── lab_experiment_agent.py&#xa;│   │   ├── research_publication_agent.py&#xa;│   │   ├── patent_analysis_agent.py&#xa;│   │   └── research_analytics_agent.py&#xa;│   │&#xa;│   ├── mcp_servers/&#xa;│   │   ├── base_mcp_server.py&#xa;│   │   └── research_project_mcp.py&#xa;│   │&#xa;│   ├── database/&#xa;│   │   └── astra_helper.py&#xa;│   │&#xa;│   └── utils/&#xa;│       └── validators.py&#xa;│&#xa;├── docs/&#xa;│   ├── Architecture_Diagram.drawio&#xa;│   ├── DataFlow_Diagram.drawio&#xa;│   ├── STRUCTURE_COMPARISON.md&#xa;│   └── QUICK_START.md&#xa;│&#xa;├── tests/ (empty)&#xa;├── data/sample_data/ (empty)&#xa;├── csv/&#xa;├── mcp_server.py (main)&#xa;├── mcp_config.json&#xa;├── requirements.txt&#xa;└── README.md" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontFamily=Courier New;fontSize=8;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="150" width="300" height="700" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#6C8EBF;" edge="1" parent="1" source="ui-page1" target="agent1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#6C8EBF;" edge="1" parent="1" source="ui-page2" target="agent2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#D79B00;" edge="1" parent="1" source="agent3" target="mcp-base">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#B85450;" edge="1" parent="1" source="mcp-research" target="db-helper">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="conn5" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82B366;" edge="1" parent="1" source="db-helper" target="db-regular">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="conn6" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#D6B656;dashed=1;" edge="1" parent="1" source="agent2" target="external-openai">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="footer" value="✅ Updated: December 2025 | 🎯 Status: Reorganized to Professional Structure | 🔧 Next: Add Analytics Page + 3 MCP Servers" style="text;html=1;strokeColor=none;fillColor=#E1D5E7;align=center;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1050" width="1090" height="30" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

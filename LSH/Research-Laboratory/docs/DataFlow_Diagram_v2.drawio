@@ -1,0 +1,189 @@
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram name="Research Laboratory Data Flow 2025" id="dataflow-v2">
+    <mxGraphModel dx="2400" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1400">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Research Laboratory - Complete Data Flow (Updated Dec 2025)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="subtitle" value="User → Streamlit UI → AI Agents (GPT-4o) → Validators → AstraDBHelper → Astra DB (10 Collections) | MCP API Access" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="60" width="1200" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- FLOW 1: User Entry -->
+        <mxCell id="flow1-box" value="1️⃣ USER ACCESS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="320" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="flow1-text" value="👤 Research Scientist&#xa;🔬 Lab Manager&#xa;📊 Data Analyst&#xa;&#xa;Access: http://localhost:8501&#xa;Command: streamlit run ui/app.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="150" width="280" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#9673A6;" edge="1" parent="1" source="flow1-box" target="flow2-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow1-label" value="Navigate Pages" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="240" width="100" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- FLOW 2: UI Pages -->
+        <mxCell id="flow2-box" value="2️⃣ STREAMLIT UI (ui/ folder)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="320" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="flow2-text" value="📱 ui/app.py - Main Dashboard&#xa;&#xa;Pages (ui/pages/):&#xa;• 1_Research_Projects.py&#xa;• 2_Clinical_Trials.py&#xa;• 3_Drug_Discovery.py&#xa;• 4_Lab_Experiments.py&#xa;• 5_CSV_Import.py (3 tabs)&#xa;&#xa;Actions: Form Entry | CSV Upload | View Data" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="280" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#6C8EBF;" edge="1" parent="1" source="flow2-box" target="flow3-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow2-label" value="Data Entry/Upload" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="440" width="110" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- FLOW 3: Validation -->
+        <mxCell id="flow3-box" value="3️⃣ DATA VALIDATION (src/utils/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BAC8D3;strokeColor=#23445D;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="480" width="320" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="flow3-text" value="📋 validators.py Functions:&#xa;&#xa;✅ validate_compound_formula()&#xa;✅ validate_trial_id()&#xa;✅ validate_project_data()&#xa;✅ validate_experiment_data()&#xa;✅ sanitize_input()&#xa;✅ validate_date_range()&#xa;&#xa;Ensures: Required fields, formats, ranges" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="120" y="510" width="280" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#23445D;" edge="1" parent="1" source="flow3-box" target="flow4-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow3-label" value="Valid Data" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="235" y="620" width="70" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- FLOW 4: AI Agents -->
+        <mxCell id="flow4-box" value="4️⃣ AI AGENTS - OpenAI GPT-4o (src/agents/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="660" width="320" height="180" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="flow4-text" value="🤖 6 Specialized AI Agents:&#xa;&#xa;1. clinical_trial_agent.py&#xa;   → Trial analysis, compliance&#xa;2. drug_discovery_agent.py&#xa;   → Candidate evaluation, molecular search&#xa;3. lab_experiment_agent.py&#xa;   → Result analysis, protocol suggestions&#xa;4. research_publication_agent.py&#xa;   → Paper search, summarization&#xa;5. patent_analysis_agent.py&#xa;   → Patent landscape, prior art&#xa;6. research_analytics_agent.py&#xa;   → Dashboard metrics, reports&#xa;&#xa;Each agent: OpenAI API → GPT-4o responses" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="120" y="690" width="280" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#D79B00;" edge="1" parent="1" source="flow4-box" target="flow5-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow4-label" value="DB Operations" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="225" y="860" width="90" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- FLOW 5: Database Helper -->
+        <mxCell id="flow5-box" value="5️⃣ DATABASE HELPER (src/database/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="900" width="320" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="flow5-text" value="🗄️ astra_helper.py (AstraDBHelper)&#xa;&#xa;Operations:&#xa;• insert_document() - Add records&#xa;• query_documents() - Retrieve data&#xa;• update_document() - Modify records&#xa;• delete_document() - Remove records&#xa;• vector_search() - Similarity search&#xa;• create_collection() - Setup&#xa;• get_collection_stats() - Metrics&#xa;&#xa;Connection: astrapy 2.1.0 → Data API" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="120" y="930" width="280" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow5" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82B366;" edge="1" parent="1" source="flow5-box" target="flow6-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="arrow5-label" value="Store/Retrieve" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="225" y="1060" width="90" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- FLOW 6: Astra DB -->
+        <mxCell id="flow6-box" value="6️⃣ ASTRA DB - 10 COLLECTIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1100" width="320" height="220" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="flow6-text" value="☁️ DataStax Astra DB Serverless&#xa;&#xa;📁 Regular Collections (7):&#xa;1. research_projects&#xa;2. clinical_trials&#xa;3. drug_candidates&#xa;4. lab_experiments&#xa;5. research_compounds&#xa;6. trial_participants&#xa;7. research_publications&#xa;&#xa;🔍 Vector Collections (3) - 1536D:&#xa;8. molecular_structures ($vector)&#xa;9. research_papers ($vector)&#xa;10. patent_documents ($vector)&#xa;&#xa;Storage: JSON documents with metadata" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1130" width="280" height="180" as="geometry"/>
+        </mxCell>
+        
+        <!-- PARALLEL FLOW: Vector Embeddings -->
+        <mxCell id="vector-flow-box" value="🔀 VECTOR EMBEDDING FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="660" width="320" height="200" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="vector-flow-text" value="For Vector Collections Only:&#xa;&#xa;STEP A: Text Input&#xa;Example: &quot;Aspirin molecular structure&quot;&#xa;&#xa;STEP B: OpenAI Embedding API&#xa;→ text-embedding-3-small model&#xa;→ Generate 1536-dimensional vector&#xa;→ [0.123, -0.456, 0.789, ...]&#xa;&#xa;STEP C: Store with $vector field&#xa;Document: {&#xa;  _id: &quot;mol_001&quot;,&#xa;  name: &quot;Aspirin&quot;,&#xa;  $vector: [1536 floats]&#xa;}&#xa;&#xa;STEP D: Vector Search&#xa;Query vector → Find similar items&#xa;Cosine similarity → Top K results" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="690" width="280" height="160" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="vector-arrow" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#D6B656;dashed=1;" edge="1" parent="1" source="flow4-box" target="vector-flow-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="vector-arrow2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#D6B656;dashed=1;" edge="1" parent="1" source="vector-flow-box" target="flow6-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- MCP SERVER FLOW -->
+        <mxCell id="mcp-flow-box" value="🔌 MCP SERVER ACCESS (Parallel)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="400" width="320" height="240" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-flow-text" value="🔌 mcp_server.py (Root MCP)&#xa;&#xa;18 MCP Tools Available:&#xa;&#xa;Query (5):&#xa;• query_research_projects&#xa;• query_clinical_trials&#xa;• query_drug_candidates&#xa;• query_lab_experiments&#xa;• query_trial_participants&#xa;&#xa;Insert (3):&#xa;• insert_research_project&#xa;• insert_clinical_trial&#xa;• insert_drug_candidate&#xa;&#xa;Vector Search (3):&#xa;• search_molecular_structures&#xa;• search_research_papers&#xa;• search_patents&#xa;&#xa;Analytics (3) + Bulk (4)&#xa;&#xa;Access: Claude Desktop, MCP clients" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="920" y="430" width="280" height="200" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-arrow" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#B85450;dashed=1;" edge="1" parent="1" source="mcp-flow-box" target="flow5-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mcp-label" value="Programmatic API Access" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="750" width="140" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- CSV IMPORT FLOW -->
+        <mxCell id="csv-flow-box" value="📤 CSV IMPORT FLOW (Special)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="700" width="320" height="220" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="csv-flow-text" value="📂 ui/pages/5_CSV_Import.py&#xa;&#xa;TAB 1: Upload CSV&#xa;• File upload (drag/drop)&#xa;• Preview first 10 rows&#xa;• Column analysis (types, nulls)&#xa;• Settings: batch size, skip errors&#xa;• Import with progress bar&#xa;&#xa;TAB 2: Manage Collections&#xa;• List all collections + metrics&#xa;• Create new collections&#xa;• Delete collections&#xa;• View collection details&#xa;&#xa;TAB 3: Import History&#xa;• Session import tracking&#xa;• Success/failure rates&#xa;• Error logs&#xa;• Download results&#xa;&#xa;Flow: CSV → Pandas → Validation →&#xa;      Batch Insert → Progress Update" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="920" y="730" width="280" height="180" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="csv-arrow" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#6C8EBF;dashed=1;" edge="1" parent="1" source="csv-flow-box" target="flow5-box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- RESPONSE FLOW (Return) -->
+        <mxCell id="return-arrow" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#999999;dashed=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="flow6-box" target="flow2-box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="1210"/>
+              <mxPoint x="50" y="350"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="return-label" value="RESPONSE FLOW&#xa;Data → UI Display" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="650" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- SUMMARY BOX -->
+        <mxCell id="summary-box" value="📊 DATA FLOW SUMMARY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1000" width="720" height="320" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="summary-text" value="🔄 Primary Flow (Manual Entry):&#xa;User → UI Form → Validators → AI Agent → AstraDBHelper → Astra DB → Display Results&#xa;&#xa;🔄 CSV Import Flow:&#xa;User → CSV Upload → Preview → Validation → Batch Insert → Progress Bar → Success/Error Report&#xa;&#xa;🔄 Vector Search Flow:&#xa;User Query → OpenAI Embedding API (1536D) → Vector Search → Similar Items → Ranked Results&#xa;&#xa;🔄 MCP API Flow (External):&#xa;MCP Client → MCP Server Tools → AstraDBHelper → Astra DB → JSON Response&#xa;&#xa;🔄 AI Agent Flow:&#xa;User Question → AI Agent → OpenAI GPT-4o → Context + DB Query → Generated Response&#xa;&#xa;📈 Key Features:&#xa;✅ Real-time validation (before DB insert)&#xa;✅ Batch processing (CSV imports up to 1000 rows)&#xa;✅ Vector similarity search (molecular structures, papers, patents)&#xa;✅ AI-powered analytics (6 specialized agents)&#xa;✅ MCP programmatic access (18 tools)&#xa;✅ Error handling and logging (try-except everywhere)&#xa;✅ Progress tracking (st.progress bars)&#xa;&#xa;🛡️ Data Quality:&#xa;• Input sanitization (SQL injection prevention)&#xa;• Format validation (dates, IDs, formulas)&#xa;• Required field checks&#xa;• Type coercion (str, int, float, date)&#xa;• Range validation (budgets, phases)&#xa;&#xa;⚡ Performance:&#xa;• Batch inserts (configurable size)&#xa;• Connection pooling (Astra DB)&#xa;• Async operations (MCP server)&#xa;• Caching (st.cache_data)&#xa;• Pagination (large result sets)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1030" width="680" height="280" as="geometry"/>
+        </mxCell>
+        
+        <!-- Footer -->
+        <mxCell id="footer" value="✅ Updated: December 2025 | 🎯 Professional Structure | 📂 Folder: ui/, src/agents/, src/mcp_servers/, src/database/, src/utils/" style="text;html=1;strokeColor=none;fillColor=#F5F5F5;align=center;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1340" width="1120" height="30" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

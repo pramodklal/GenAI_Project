@@ -1,0 +1,249 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0" version="29.2.7">
+  <diagram name="Pharma Manufacturing Architecture" id="pharma-architecture">
+    <mxGraphModel dx="1955" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" value="Pharma Manufacturing - Agentic AI System Architecture" vertex="1">
+          <mxGeometry height="40" width="700" x="350" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" value="Astra DB Serverless | Vector Search (1536D) | MCP Protocol | Real-time Quality &amp; Compliance" vertex="1">
+          <mxGeometry height="20" width="700" x="350" y="55" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 1: UI Layer -->
+        <mxCell id="layer1-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=50;" value="" vertex="1">
+          <mxGeometry height="100" width="1200" x="100" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="UI Layer - STREAMLIT (Multi-page App)" vertex="1">
+          <mxGeometry height="30" width="350" x="120" y="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ui1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="💊 Medicine&#xa;Catalog" vertex="1">
+          <mxGeometry height="40" width="140" x="130" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="ui2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="🏭 Batch&#xa;Production" vertex="1">
+          <mxGeometry height="40" width="140" x="290" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="ui3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="🔬 Quality&#xa;Control" vertex="1">
+          <mxGeometry height="40" width="140" x="450" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="ui4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="📋 Regulatory&#xa;Compliance" vertex="1">
+          <mxGeometry height="40" width="140" x="610" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="ui5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="📦 Inventory&#xa;Management" vertex="1">
+          <mxGeometry height="40" width="140" x="770" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="ui6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="📊 Analytics&#xa;Dashboard" vertex="1">
+          <mxGeometry height="40" width="140" x="930" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="streamlit-info" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" value="streamlit run app.py" vertex="1">
+          <mxGeometry height="20" width="140" x="1100" y="145" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 2: AI Agents Layer -->
+        <mxCell id="layer2-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;" value="" vertex="1">
+          <mxGeometry height="180" width="1200" x="100" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="AI Agent Layer (6 Specialized Agents)" vertex="1">
+          <mxGeometry height="30" width="350" x="120" y="220" as="geometry" />
+        </mxCell>
+        
+        <!-- Quality Control Agent -->
+        <mxCell id="agent1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="Quality Control Agent" vertex="1">
+          <mxGeometry height="70" width="170" x="130" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• OOS Detection&#xa;• Test Result Analysis&#xa;• COA Generation" vertex="1">
+          <mxGeometry height="40" width="160" x="135" y="285" as="geometry" />
+        </mxCell>
+        
+        <!-- Regulatory Compliance Agent -->
+        <mxCell id="agent2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="Regulatory Compliance" vertex="1">
+          <mxGeometry height="70" width="170" x="320" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• FDA/EMA Validation&#xa;• Document Expiry Track&#xa;• Vector Search Regs" vertex="1">
+          <mxGeometry height="40" width="160" x="325" y="285" as="geometry" />
+        </mxCell>
+        
+        <!-- Production Optimization Agent -->
+        <mxCell id="agent3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="Production Optimization" vertex="1">
+          <mxGeometry height="70" width="170" x="510" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Batch Scheduling&#xa;• Yield Prediction&#xa;• Resource Allocation" vertex="1">
+          <mxGeometry height="40" width="160" x="515" y="285" as="geometry" />
+        </mxCell>
+        
+        <!-- Supply Chain Agent -->
+        <mxCell id="agent4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="Supply Chain Agent" vertex="1">
+          <mxGeometry height="70" width="170" x="700" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Demand Forecast&#xa;• Supplier Analysis&#xa;• Reorder Calculation" vertex="1">
+          <mxGeometry height="40" width="160" x="705" y="285" as="geometry" />
+        </mxCell>
+        
+        <!-- Pharmacovigilance Agent -->
+        <mxCell id="agent5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="Pharmacovigilance" vertex="1">
+          <mxGeometry height="70" width="170" x="130" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="agent5-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• AE Signal Detection&#xa;• Vector Similar Cases&#xa;• MedDRA Coding" vertex="1">
+          <mxGeometry height="40" width="160" x="135" y="375" as="geometry" />
+        </mxCell>
+        
+        <!-- Equipment Maintenance Agent -->
+        <mxCell id="agent6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="Equipment Maintenance" vertex="1">
+          <mxGeometry height="70" width="170" x="320" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="agent6-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Predictive Maintenance&#xa;• OEE Calculation&#xa;• Calibration Track" vertex="1">
+          <mxGeometry height="40" width="160" x="325" y="375" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent Features Box -->
+        <mxCell id="agent-features" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="All Agents Connected to&#xa;Astra DB via AstraDBHelper" vertex="1">
+          <mxGeometry height="50" width="370" x="510" y="360" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 3: MCP Server Layer -->
+        <mxCell id="layer3-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;opacity=50;" value="" vertex="1">
+          <mxGeometry height="150" width="1200" x="100" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="MCP Server Layer (Model Context Protocol - AI Agent APIs)" vertex="1">
+          <mxGeometry height="30" width="450" x="120" y="420" as="geometry" />
+        </mxCell>
+        
+        <!-- Medicine MCP -->
+        <mxCell id="mcp1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;verticalAlign=top;" value="Medicine MCP (v1.0)" vertex="1">
+          <mxGeometry height="80" width="200" x="130" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp1-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• get_medicine_details()&#xa;• search_medicines()&#xa;• get_similar_formulations()&#xa;• create_medicine()" vertex="1">
+          <mxGeometry height="50" width="190" x="135" y="485" as="geometry" />
+        </mxCell>
+        
+        <!-- Quality Control MCP -->
+        <mxCell id="mcp2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;verticalAlign=top;" value="Quality Control MCP" vertex="1">
+          <mxGeometry height="80" width="200" x="350" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp2-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• submit_qc_test()&#xa;• validate_batch_quality()&#xa;• approve_batch()&#xa;• generate_coa()" vertex="1">
+          <mxGeometry height="50" width="190" x="355" y="485" as="geometry" />
+        </mxCell>
+        
+        <!-- Production MCP -->
+        <mxCell id="mcp3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;verticalAlign=top;" value="Production MCP" vertex="1">
+          <mxGeometry height="80" width="200" x="570" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp3-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• create_batch()&#xa;• update_batch_stage()&#xa;• get_production_schedule()&#xa;• allocate_equipment()" vertex="1">
+          <mxGeometry height="50" width="190" x="575" y="485" as="geometry" />
+        </mxCell>
+        
+        <!-- Compliance MCP -->
+        <mxCell id="mcp4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;verticalAlign=top;" value="Compliance MCP" vertex="1">
+          <mxGeometry height="80" width="200" x="790" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp4-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• check_compliance()&#xa;• submit_adverse_event()&#xa;• search_regulations()&#xa;• generate_audit_report()" vertex="1">
+          <mxGeometry height="50" width="190" x="795" y="485" as="geometry" />
+        </mxCell>
+        
+        <!-- Inventory MCP -->
+        <mxCell id="mcp5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;verticalAlign=top;" value="Inventory MCP" vertex="1">
+          <mxGeometry height="80" width="200" x="1010" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp5-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• get_material_inventory()&#xa;• check_low_stock_items()&#xa;• create_purchase_order()&#xa;• forecast_demand()" vertex="1">
+          <mxGeometry height="50" width="190" x="1015" y="485" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 4: Data Layer (Astra DB) -->
+        <mxCell id="layer4-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;opacity=50;" value="" vertex="1">
+          <mxGeometry height="240" width="1200" x="100" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Data Layer - ASTRA DB SERVERLESS (10 Collections)" vertex="1">
+          <mxGeometry height="30" width="450" x="120" y="590" as="geometry" />
+        </mxCell>
+        
+        <!-- Regular Collections Box -->
+        <mxCell id="regular-collections-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;verticalAlign=top;" value="Regular Collections (7)" vertex="1">
+          <mxGeometry height="170" width="700" x="130" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="regular-collections" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;" value="1. medicines - Medicine catalog (name, formula, dosage, indications)&#xa;2. manufacturing_batches - Batch records (batch_id, status, yield)&#xa;3. raw_materials - Inventory (material_id, quantity, expiry, supplier)&#xa;4. quality_control_tests - QC results (test_type, parameters, pass/fail)&#xa;5. production_schedules - Manufacturing schedules (date, equipment, staff)&#xa;6. regulatory_documents - Compliance docs (DMF, CTD, stability, GMP)&#xa;7. audit_logs - System activity (user, action, timestamp, compliance)" vertex="1">
+          <mxGeometry height="145" width="680" x="140" y="655" as="geometry" />
+        </mxCell>
+        
+        <!-- Vector Collections Box -->
+        <mxCell id="vector-collections-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" value="Vector Collections (3) - 1536D Embeddings" vertex="1">
+          <mxGeometry height="170" width="430" x="850" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="vector-collections" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;" value="11. formulations ($vector)&#xa;    • Medicine formulations with embeddings&#xa;    • Use: Find similar formulations&#xa;    • Identify alternative ingredients&#xa;&#xa;12. adverse_events ($vector)&#xa;    • Pharmacovigilance AE reports&#xa;    • Use: Pattern detection, signal detection&#xa;    • Semantic search for similar cases&#xa;&#xa;13. sop_documents ($vector)&#xa;    • Standard Operating Procedures&#xa;    • Use: Semantic SOP search&#xa;    • Find relevant procedures by query" vertex="1">
+          <mxGeometry height="145" width="410" x="860" y="655" as="geometry" />
+        </mxCell>
+        
+        <!-- Database Info Box -->
+        <mxCell id="db-info" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="AstraDBHelper | DataStax Astra DB | Data API | astrapy 2.1.0 | OpenAI Embeddings" vertex="1">
+          <mxGeometry height="40" width="1150" x="130" y="760" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;dashed=1;" value="" vertex="1">
+          <mxGeometry height="400" width="180" x="-210" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" value="LEGEND" vertex="1">
+          <mxGeometry height="25" width="180" x="-210" y="345" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-ui-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-200" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-ui-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Streamlit UI" vertex="1">
+          <mxGeometry height="20" width="120" x="-165" y="380" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-agent-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-200" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-agent-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="AI Agents" vertex="1">
+          <mxGeometry height="20" width="120" x="-165" y="410" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-mcp-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-200" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-mcp-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="MCP Servers" vertex="1">
+          <mxGeometry height="20" width="120" x="-165" y="440" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-data-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-200" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-data-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Regular Data" vertex="1">
+          <mxGeometry height="20" width="120" x="-165" y="470" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-vector-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-200" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-vector-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Vector Search" vertex="1">
+          <mxGeometry height="20" width="120" x="-165" y="500" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-features" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;" value="Key Features:&#xa;• 10 Collections (7+3)&#xa;• Vector: 1536D&#xa;• OpenAI Embeddings&#xa;• Real-time Quality&#xa;• FDA/EMA Compliance&#xa;• GMP/21 CFR Part 11" vertex="1">
+          <mxGeometry height="100" width="170" x="-205" y="540" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-tech" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;" value="Tech Stack:&#xa;• Streamlit UI&#xa;• Astrapy 2.1.0&#xa;• MCP Protocol&#xa;• Python 3.11+&#xa;• OpenAI API" vertex="1">
+          <mxGeometry height="90" width="170" x="-205" y="650" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="arrow1" edge="1" parent="1" source="ui3" target="agent1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" source="agent1" target="mcp2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" source="mcp2" target="regular-collections-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#bac8d3;strokeColor=#23445d;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

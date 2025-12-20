@@ -1,0 +1,6 @@
+supplier_id,name,email,phone,address,certifications,materials_supplied,status,created_at
+SUP-001,PharmaCore API Solutions,sales@pharmacore.com,+1-555-0123,"1200 Industrial Blvd, Newark, NJ 07102, USA","FDA Registered|GMP Certified|ISO 9001:2015|CEP","MAT-101|MAT-103|MAT-105",active,2023-05-10T08:00:00Z
+SUP-002,Global Med Ingredients Ltd,info@globalmedingredients.com,+44-20-7946-0958,"45 Pharmaceutical Park, London SE1 2AA, UK","EMA Approved|GMP Certified|ISO 9001:2015|MHRA Licensed","MAT-102|MAT-104",active,2023-07-22T09:30:00Z
+SUP-003,Excipient Masters Inc,orders@excipientmasters.com,+1-555-0456,"8900 Commerce Drive, Charlotte, NC 28202, USA","FDA Registered|GMP Certified|ISO 9001:2015","MAT-201|MAT-202|MAT-204|MAT-205",active,2023-04-15T10:00:00Z
+SUP-004,Premium Lubricants Supply Co,sales@premiumlubricants.com,+1-555-0789,"3300 Industrial Way, Chicago, IL 60601, USA","FDA Registered|GMP Certified","MAT-203|MAT-205",active,2023-08-05T11:15:00Z
+SUP-005,Asian Pharma Ingredients,contact@asianpharmaing.com,+86-21-5555-1234,"Building 5, Shanghai Pharma Park, Pudong, Shanghai 201203, China","FDA Registered|GMP Certified|ISO 9001:2015|CFDA Certified","MAT-101|MAT-102",active,2023-09-12T08:30:00Z

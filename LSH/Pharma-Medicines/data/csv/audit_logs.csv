@@ -1,0 +1,11 @@
+log_id,timestamp,action,entity_type,entity_id,performed_by,old_value_status,new_value_status,old_value_qty,new_value_qty,ip_address,user_agent,created_at
+LOG-2025-001,2025-01-20T14:30:00Z,approve,batch,BATCH-2025-001,Dr. Sarah Johnson,in_qc,approved,,,192.168.1.105,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-01-20T14:30:00Z
+LOG-2025-002,2025-01-25T10:15:00Z,create,purchase_order,PO-2025-002,Purchasing Manager - Tom Wilson,,,,58950,192.168.1.110,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-01-25T10:15:00Z
+LOG-2025-003,2025-02-05T15:10:00Z,update,material,MAT-202,Warehouse Operator - Lisa Martinez,,,1850,850,192.168.1.115,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-02-05T15:10:00Z
+LOG-2025-004,2025-01-15T08:00:00Z,create,batch,BATCH-2025-001,Production Planner - James Mitchell,,in_production,,,192.168.1.108,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-01-15T08:00:00Z
+LOG-2025-005,2025-01-19T14:20:00Z,create,qc_test,QC-2025-001,Lab Analyst - Mike Chen,,,,87.3,192.168.1.120,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-01-19T14:20:00Z
+LOG-2025-006,2025-02-01T11:45:00Z,create,purchase_order,PO-2025-003,Purchasing Manager - Tom Wilson,,,,294750,192.168.1.110,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-02-01T11:45:00Z
+LOG-2025-007,2025-01-18T09:00:00Z,create,batch,BATCH-2025-002,Production Planner - James Mitchell,,in_production,,,192.168.1.108,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-01-18T09:00:00Z
+LOG-2025-008,2025-02-10T09:30:00Z,update,material,MAT-101,Warehouse Operator - Lisa Martinez,,,3500,5500,192.168.1.115,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-02-10T09:30:00Z
+LOG-2025-009,2024-12-18T15:20:00Z,approve,batch,BATCH-2024-156,Dr. Michael Zhang,in_qc,approved,,,192.168.1.105,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2024-12-18T15:20:00Z
+LOG-2025-010,2025-01-05T14:20:00Z,update,medicine,MED-001,Regulatory Affairs - Dr. Amanda Foster,active,active,,,192.168.1.125,Mozilla/5.0 (Windows NT 10.0; Win64; x64),2025-01-05T14:20:00Z

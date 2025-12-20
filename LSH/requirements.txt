@@ -1,56 +1,26 @@
-# Healthcare Digital - Agentic AI System
+# Healthcare Digital - Universal Requirements
+# Works on both Streamlit Cloud and Localhost
 
-# Python package requirements for the Healthcare Digital Agentic AI System.
+# Core UI Framework
+streamlit==1.31.0
 
-## Core Dependencies - Multi-Agent Framework
-# Option 1: Microsoft Agent Framework (use --pre flag when installing)
-# agent-framework-azure-ai>=1.0.0b251216  # Microsoft Agent Framework with Azure AI integration
+# Database - CRITICAL
+astrapy==1.4.0
+python-dotenv==1.0.1
 
-# Option 2: LangGraph (recommended for flexibility)
-langgraph>=0.2.0
-langchain>=0.3.0
-langchain-openai>=0.2.0
-langchain-community>=0.3.0
+# AI/LLM - Essential
+openai==1.30.0
 
-# Common dependencies
-azure-identity>=1.15.0
-pydantic>=2.0.0
-openai>=1.0.0
-# azure-ai-inference is optional - only needed for specific Azure AI features
-# azure-ai-inference>=1.0.0b9
+# Data Processing
+pandas==2.1.4
+numpy==1.26.3
 
-## Data Science & ML
-scikit-learn>=1.4.0
-numpy>=1.24.0
-pandas>=2.0.0
-lightgbm>=4.0.0
+# Visualization
+plotly==5.18.0
 
-## API & Web
-fastapi>=0.109.0
-uvicorn>=0.27.0
-httpx>=0.26.0
+# Utilities
+pydantic==2.5.3
+httpx==0.26.0
 
-## UI
-streamlit>=1.31.0
-plotly>=5.18.0
-
-## Database
-sqlalchemy>=2.0.0
-psycopg2-binary>=2.9.0
-redis>=5.0.0
-# cassandra-driver>=3.29.0  # Not needed if using astrapy
-astrapy>=1.4.0  # Astra DB Data API (Vector Search included)
-python-dotenv>=1.0.0  # Environment variable management
-
-## Monitoring & Logging
-prometheus-client>=0.19.0
-python-json-logger>=2.0.0
-
-## Testing
-pytest>=8.0.0
-pytest-asyncio>=0.23.0
-pytest-cov>=4.1.0
-
-## Utilities
-python-dotenv>=1.0.0
-pyyaml>=6.0.0
+# NOTE: Your custom agents don't need langchain/langgraph
+# For full development features (optional), use: pip install -r requirements-local.txt

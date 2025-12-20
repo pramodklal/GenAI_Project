@@ -1,0 +1,280 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="Healthcare Digital Architecture" id="architecture">
+    <mxGraphModel dx="1955" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fillColor=#d5e8d4;" value="Healthcare Digital - Agentic AI System (IMPLEMENTED)" vertex="1">
+          <mxGeometry height="40" width="600" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" value="Astra DB Serverless | Vector Search | 22 MCP Tools | Real-time AI Agents" vertex="1">
+          <mxGeometry height="20" width="600" x="300" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=50;" value="" vertex="1">
+          <mxGeometry height="80" width="1040" x="80" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="UI Layer - STREAMLIT (Multi-page App)" vertex="1">
+          <mxGeometry height="30" width="350" x="265" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ui1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="🍽️ Meal Ordering&#xa;(Real DB)" vertex="1">
+          <mxGeometry height="30" width="130" x="120" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ui2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Food Production&#xa;Dashboard" vertex="1">
+          <mxGeometry height="30" width="120" x="270" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ui3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="EVS Management&#xa;UI" vertex="1">
+          <mxGeometry height="30" width="110" x="410" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ui4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Analytics&#xa;Dashboard" vertex="1">
+          <mxGeometry height="30" width="100" x="540" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ui5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Data Upload&#xa;(CSV Import)" vertex="1">
+          <mxGeometry height="30" width="110" x="660" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="streamlit-info" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" value="streamlit run ui/Core_Service.py" vertex="1">
+          <mxGeometry height="20" width="160" x="790" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;opacity=50;" value="" vertex="1">
+          <mxGeometry height="100" width="1040" x="80" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Agent Orchestration &amp; Governance Layer (LangGraph)" vertex="1">
+          <mxGeometry height="30" width="400" x="255" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="orchestrator1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Router &amp;&#xa;Coordinator" vertex="1">
+          <mxGeometry height="40" width="100" x="120" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="orchestrator2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Safety &amp;&#xa;Compliance" vertex="1">
+          <mxGeometry height="40" width="100" x="240" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="orchestrator3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Monitoring &amp;&#xa;Observability" vertex="1">
+          <mxGeometry height="40" width="100" x="360" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="orchestrator4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Workflow&#xa;State Manager" vertex="1">
+          <mxGeometry height="40" width="100" x="480" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;" value="" vertex="1">
+          <mxGeometry height="180" width="1040" x="80" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Multi-Agent System Layer" vertex="1">
+          <mxGeometry height="30" width="250" x="345" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="meal-agents-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=center;fontStyle=1;" value="Nutrition Agents (IMPLEMENTED)" vertex="1">
+          <mxGeometry height="130" width="280" x="120" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="✅ Nutrition Validation Agent" vertex="1">
+          <mxGeometry height="50" width="120" x="135" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-feature" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Vector Search&#xa;Recommendations" vertex="1">
+          <mxGeometry height="20" width="120" x="135" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Allergen&#xa;Detection" vertex="1">
+          <mxGeometry height="35" width="75" x="270" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Calorie&#xa;Tracking" vertex="1">
+          <mxGeometry height="30" width="75" x="270" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-db-link" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1" value="→ Astra DB" vertex="1">
+          <mxGeometry height="20" width="120" x="135" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="food-agents-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=center;fontStyle=1;" value="Production Agents (IMPLEMENTED)" vertex="1">
+          <mxGeometry height="130" width="280" x="430" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="agent6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="✅ Waste Reduction Agent" vertex="1">
+          <mxGeometry height="50" width="120" x="445" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="agent6-feature" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Inventory Analysis&#xa;Historical Waste" vertex="1">
+          <mxGeometry height="20" width="120" x="445" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="agent5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Demand&#xa;Forecasting" vertex="1">
+          <mxGeometry height="35" width="75" x="580" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Production&#xa;Scheduling" vertex="1">
+          <mxGeometry height="30" width="75" x="580" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-db-link2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1" value="→ Astra DB" vertex="1">
+          <mxGeometry height="20" width="120" x="445" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="evs-agents-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=center;fontStyle=1;" value="EVS Agents (IMPLEMENTED)" vertex="1">
+          <mxGeometry height="130" width="360" x="740" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="agent7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="✅ EVS Prioritization Agent" vertex="1">
+          <mxGeometry height="50" width="140" x="755" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="agent7-feature" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Isolation Priority&#xa;Staff Assignment" vertex="1">
+          <mxGeometry height="20" width="140" x="755" y="403" as="geometry" />
+        </mxCell>
+        <mxCell id="agent8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Staff&#xa;Optimization" vertex="1">
+          <mxGeometry height="35" width="85" x="910" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="agent9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Task&#xa;Scheduling" vertex="1">
+          <mxGeometry height="35" width="75" x="1010" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-db-link3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1" value="→ Astra DB" vertex="1">
+          <mxGeometry height="20" width="140" x="755" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-test-status" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;fillColor=#d5e8d4;" value="Tested: 90/100 score for isolation tasks" vertex="1">
+          <mxGeometry height="20" width="175" x="910" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;opacity=50;" value="" vertex="1">
+          <mxGeometry height="130" width="1040" x="80" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="MCP Server Layer (Model Context Protocol)" vertex="1">
+          <mxGeometry height="30" width="350" x="280" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;verticalAlign=top;" value="✅ Meal Order MCP (v2.0.0)" vertex="1">
+          <mxGeometry height="70" width="150" x="120" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp1-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• get_patient_dietary_restrictions&#xa;• validate_meal_selection&#xa;• submit_meal_order&#xa;• get_nutrition_info&#xa;• get_meal_recommendations" vertex="1">
+          <mxGeometry height="45" width="140" x="125" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;verticalAlign=top;" value="✅ Food Production MCP (v2.0.0)" vertex="1">
+          <mxGeometry height="70" width="170" x="290" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp2-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• get_demand_forecast (real data)&#xa;• get_inventory_status&#xa;• create_prep_schedule&#xa;• identify_waste_risks" vertex="1">
+          <mxGeometry height="45" width="160" x="295" y="567" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;" value="EVS Task MCP (Pending)" vertex="1">
+          <mxGeometry height="70" width="150" x="480" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp3-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• create_evs_task&#xa;• get_staff_availability&#xa;• update_task_status&#xa;• get_prioritized_tasks" vertex="1">
+          <mxGeometry height="45" width="140" x="485" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp-base" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;verticalAlign=top;" value="MCPServerBase (Abstract)" vertex="1">
+          <mxGeometry height="70" width="130" x="650" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp-base-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• register_endpoint()&#xa;• call_endpoint()&#xa;• Parameter validation&#xa;• Error handling" vertex="1">
+          <mxGeometry height="45" width="120" x="655" y="569" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp-info" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;verticalAlign=top;" value="Model Context Protocol" vertex="1">
+          <mxGeometry height="70" width="170" x="800" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp-info-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;" value="AI-agent compatible APIs&#xa;Enables Claude Desktop&#xa;and external AI tools&#xa;to interact with system" vertex="1">
+          <mxGeometry height="40" width="160" x="805" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="layer5-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;opacity=50;" value="" vertex="1">
+          <mxGeometry height="80" width="1040" x="80" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="layer5-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Operational Data Science &amp; ML Models" vertex="1">
+          <mxGeometry height="30" width="350" x="255" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="ml1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad9d5;strokeColor=#ae4132;" value="Meal Demand&#xa;Forecasting" vertex="1">
+          <mxGeometry height="30" width="110" x="120" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="ml2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad9d5;strokeColor=#ae4132;" value="EVS Task&#xa;Prediction" vertex="1">
+          <mxGeometry height="30" width="100" x="250" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="ml3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad9d5;strokeColor=#ae4132;" value="Labor&#xa;Optimization" vertex="1">
+          <mxGeometry height="30" width="100" x="370" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="ml4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad9d5;strokeColor=#ae4132;" value="Anomaly&#xa;Detection" vertex="1">
+          <mxGeometry height="30" width="100" x="490" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="ml5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Model Serving&#xa;(FastAPI)" vertex="1">
+          <mxGeometry height="30" width="100" x="610" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="ml6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Feature&#xa;Store" vertex="1">
+          <mxGeometry height="30" width="80" x="730" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="layer6-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;opacity=50;" value="" vertex="1">
+          <mxGeometry height="60" width="1040" x="80" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="layer6-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Data &amp; Integration Layer - ASTRA DB SERVERLESS" vertex="1">
+          <mxGeometry height="30" width="450" x="249" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="db1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1;" value="Astra DB&#xa;(11 Collections)" vertex="1">
+          <mxGeometry height="25" width="140" x="120" y="766" as="geometry" />
+        </mxCell>
+        <mxCell id="db1-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" value="8 Regular + 3 Vector" vertex="1">
+          <mxGeometry height="10" width="140" x="115" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="db2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;" value="Vector Search&#xa;(OpenAI Embeddings)" vertex="1">
+          <mxGeometry height="25" width="150" x="280" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="db3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;" value="Data API&#xa;(astrapy 2.1.0)" vertex="1">
+          <mxGeometry height="25" width="130" x="450" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="db4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="AstraDBHelper&#xa;(Singleton)" vertex="1">
+          <mxGeometry height="25" width="130" x="600" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="db5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Audit Logs&#xa;(HIPAA)" vertex="1">
+          <mxGeometry height="25" width="100" x="750" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" edge="1" parent="1" source="ui1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" target="orchestrator1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" source="orchestrator2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" target="meal-agents-box" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" source="agent1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" target="mcp1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#fad7ac;strokeColor=#b46504;" target="ml1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" edge="1" parent="1" source="mcp1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#bac8d3;strokeColor=#23445d;" target="db1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;dashed=1;" value="" vertex="1">
+          <mxGeometry height="400" width="150" x="-190" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" value="LEGEND" vertex="1">
+          <mxGeometry height="25" width="150" x="-190" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-implemented-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-implemented-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="✅ Implemented" vertex="1">
+          <mxGeometry height="20" width="110" x="-145" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-pending-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-pending-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="⏳ Pending" vertex="1">
+          <mxGeometry height="20" width="100" x="-145" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-ui-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-ui-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="UI Layer" vertex="1">
+          <mxGeometry height="20" width="100" x="-145" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-agent-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-agent-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Agent Layer" vertex="1">
+          <mxGeometry height="20" width="100" x="-145" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-mcp-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;opacity=50;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-mcp-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="MCP Server" vertex="1">
+          <mxGeometry height="20" width="100" x="-145" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-data-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-data-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Data Layer" vertex="1">
+          <mxGeometry height="20" width="100" x="-145" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-vector-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-vector-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Vector/AI" vertex="1">
+          <mxGeometry height="20" width="100" x="-145" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-protocol-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-180" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-protocol-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="MCP Protocol" vertex="1">
+          <mxGeometry height="20" width="100" x="-145" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-collections" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;" value="Collections:&#xa;• Regular (8)&#xa;• Vector (3)&#xa;• Embeddings: 1536D" vertex="1">
+          <mxGeometry height="60" width="145" x="-180" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-tech" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;" value="Tech Stack:&#xa;• Streamlit UI&#xa;• Astrapy 2.1.0&#xa;• OpenAI Embeddings" vertex="1">
+          <mxGeometry height="60" width="145" x="-180" y="680" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

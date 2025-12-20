@@ -1,0 +1,9 @@
+log_id,resource_type,resource_id,user_id,action,timestamp,action_details,ip_address,user_agent,success,error_message
+LOG001,patient,P001,NURSE_01,view,2025-12-17T08:00:00Z,Viewed patient profile,192.168.1.101,Mozilla/5.0,TRUE,None
+LOG002,meal_order,ORD001,NURSE_01,create,2025-12-17T08:05:00Z,Created breakfast order,192.168.1.101,Mozilla/5.0,TRUE,None
+LOG003,patient,P002,DR_SMITH,update,2025-12-17T09:00:00Z,Updated dietary restrictions,192.168.1.105,Mozilla/5.0,TRUE,None
+LOG004,menu_item,MENU001,KITCHEN_MGR,update,2025-12-17T10:00:00Z,Updated nutritional info,192.168.1.110,Mozilla/5.0,TRUE,None
+LOG005,evs_task,T001,EVS_SUPERVISOR,assign,2025-12-17T11:00:00Z,Assigned task to EVS001,192.168.1.115,Mozilla/5.0,TRUE,None
+LOG006,patient,P003,ADMIN_01,delete,2025-12-17T12:00:00Z,Attempted deletion - blocked,192.168.1.120,Mozilla/5.0,FALSE,Insufficient permissions
+LOG007,meal_order,ORD002,SYSTEM,validate,2025-12-17T13:00:00Z,AI validation completed,127.0.0.1,System,TRUE,None
+LOG008,evs_task,T002,EVS001,complete,2025-12-17T14:00:00Z,Task marked complete,192.168.1.125,Mobile-App,TRUE,None

@@ -1,0 +1,9 @@
+ingredient_id,name,category,quantity,unit,reorder_level,expiration_date,batch_number,supplier,storage_location,temperature_requirement,created_at,updated_at
+ING001,Chicken Breast,Protein,50.5,lb,20,12/25/2025,BATCH2025A,Sysco Foods,Walk-in Cooler A,35-38F,2025-12-10T08:00:00Z,2025-12-17T08:00:00Z
+ING002,Brown Rice,Grain,100,lb,30,3/15/2026,BATCH2025B,US Foods,Dry Storage,Room Temp,2025-12-05T09:00:00Z,2025-12-17T09:00:00Z
+ING003,Broccoli,Vegetable,25,lb,10,12/20/2025,BATCH2025C,Local Farms,Walk-in Cooler B,35-38F,2025-12-15T10:00:00Z,2025-12-17T10:00:00Z
+ING004,Olive Oil,Fat,15,gallon,5,6/30/2026,BATCH2025D,Restaurant Depot,Dry Storage,Room Temp,2025-11-20T11:00:00Z,2025-12-17T11:00:00Z
+ING005,Ground Turkey,Protein,30,lb,15,12/22/2025,BATCH2025E,Sysco Foods,Walk-in Freezer,0-5F,2025-12-12T12:00:00Z,2025-12-17T12:00:00Z
+ING006,Whole Wheat Flour,Grain,75,lb,25,5/10/2026,BATCH2025F,Bob's Red Mill,Dry Storage,Room Temp,2025-11-15T13:00:00Z,2025-12-17T13:00:00Z
+ING007,Fresh Spinach,Vegetable,12,lb,8,12/19/2025,BATCH2025G,Local Farms,Walk-in Cooler B,35-38F,2025-12-16T14:00:00Z,2025-12-17T14:00:00Z
+ING008,Low-Fat Milk,Dairy,20,gallon,10,12/23/2025,BATCH2025H,Dairy Farms Inc,Walk-in Cooler A,35-38F,2025-12-14T15:00:00Z,2025-12-17T15:00:00Z

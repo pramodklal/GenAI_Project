@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-17T00:00:00.000Z" agent="draw.io" version="24.0.0">
+  <diagram name="Meal Order Data Flow" id="dataflow">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Meal Order Processing - ACTUAL DATA FLOW (Implemented)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Streamlit UI → Nutrition Agent → MCP Server v2.0 → Astra DB → Vector Search" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="300" y="55" width="600" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Start -->
+        <mxCell id="start" value="START
+🍽️ Patient clicks Meal Ordering (Streamlit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="90" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 1: Streamlit UI -->
+        <mxCell id="step1" value="1. Streamlit UI (1_🍽️_Meal_Ordering.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="160" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-data" value="User Actions:&#xa;• Select patient (dropdown)&#xa;• Browse menu by category&#xa;• Add/remove meal items&#xa;• View allergies/restrictions&#xa;• Click 'Submit Order'" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" vertex="1" parent="1">
+          <mxGeometry x="720" y="150" width="150" height="85" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 2: Load Patient Data -->
+        <mxCell id="step2" value="2. Load Patient Data from Astra DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="230" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-note" value="db.get_patient(patient_id)&#xa;db.get_patient_dietary_profile()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" vertex="1" parent="1">
+          <mxGeometry x="720" y="230" width="180" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 3: Nutrition Validation Agent -->
+        <mxCell id="step3" value="3. ✅ Nutrition Validation Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="300" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-actions" value="validate_meal()&#xa;• Check allergen conflicts&#xa;• Validate dietary restrictions&#xa;• Calculate nutrition totals&#xa;• Vector search recommendations" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" vertex="1" parent="1">
+          <mxGeometry x="720" y="290" width="170" height="75" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 3a: Call MCP Server -->
+        <mxCell id="step3a" value="3a. ✅ Meal Order MCP v2.0.0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="320" width="180" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="step3a-endpoints" value="mcp.call_endpoint():&#xa;• validate_meal_selection()&#xa;  → db.validate_meal_for_patient()&#xa;  → Checks allergies, restrictions&#xa;  → Returns conflicts + warnings" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="305" width="180" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 3b: Database Query -->
+        <mxCell id="step3b" value="3b. Astra DB Query (Data API)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="375" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step3b-data" value="Collections Queried:&#xa;• patients (allergies)&#xa;• patient_dietary_profiles&#xa;• menu_items (nutrition)&#xa;Returns: allergen_conflicts[]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="385" width="180" height="65" as="geometry" />
+        </mxCell>
+        
+        <!-- Decision: Valid? -->
+        <mxCell id="decision1" value="Valid?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="520" y="410" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Invalid Path -->
+        <mxCell id="invalid-path" value="NO - Allergen Conflict!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="420" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="invalid-result" value="UI Shows Error:&#xa;❌ Contains shellfish&#xa;  Patient has allergy&#xa;Alternative suggestions:&#xa;• Turkey Meatballs (0.661)&#xa;• Grilled Chicken (0.598)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" vertex="1" parent="1">
+          <mxGeometry x="750" y="475" width="150" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="invalid-end" value="END
+❌ Order Blocked" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="755" y="575" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Valid Path Continues -->
+        <mxCell id="step4" value="4. Submit Order" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="530" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 4a: Order Submission -->
+        <mxCell id="step4a" value="4a. ✅ submit_meal_order()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="535" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step4a-endpoint" value="order_data = {&#xa;  patient_id, meal_items,&#xa;  meal_time, order_date,&#xa;  status: 'pending'&#xa;}" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="530" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 4b: Database Insert -->
+        <mxCell id="step4b" value="4b. Astra DB Insert" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="580" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step4b-data" value="db.create_meal_order(order_data)&#xa;→ meal_orders collection&#xa;→ Generates UUID order_id&#xa;→ Returns: ORD-P001-20251218&#xa;→ Logged to agent_activities" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="585" width="180" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 5: Vector Search Recommendations -->
+        <mxCell id="step5" value="5. ✅ Vector Search Recommendations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="640" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step5-note" value="IF order placed&#xa;Show alternative meals" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=left;" vertex="1" parent="1">
+          <mxGeometry x="700" y="645" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 5a: Vector Search -->
+        <mxCell id="step5a" value="5a. OpenAI Embeddings + Astra Vector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="645" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step5a-endpoints" value="Query: 'diabetic low-sodium'&#xa;→ text-embedding-3-small&#xa;→ db.vector_search_menu_items()&#xa;→ $similarity sort&#xa;→ Filter allergens (strict)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="180" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 5b: Return Results -->
+        <mxCell id="step5b" value="5b. Return Top 5 Meals" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="690" width="190" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step5b-models" value="Results:&#xa;• Turkey Meatballs (0.661)&#xa;• Grilled Chicken (0.598)&#xa;• Quinoa Salad (0.543)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 6: UI Feedback -->
+        <mxCell id="step6" value="6. Display Success Message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="735" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step6-recipients" value="Streamlit UI Shows:&#xa;✅ Order submitted!&#xa;Order ID: ORD-P001-xxx&#xa;Status: Pending&#xa;• View order history tab&#xa;• See recommendations tab" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" vertex="1" parent="1">
+          <mxGeometry x="700" y="710" width="180" height="85" as="geometry" />
+        </mxCell>
+        
+        <!-- Final Result -->
+        <mxCell id="result" value="END ✅ Order in Astra DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="805" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="result-data" value="Data Stored:&#xa;• meal_orders collection&#xa;• agent_activities log&#xa;• Patient can view in history&#xa;• Kitchen staff gets notification&#xa;• Status: pending → preparing" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" vertex="1" parent="1">
+          <mxGeometry x="700" y="795" width="180" height="75" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" edge="1" parent="1" source="start" target="step1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;endArrow=classic;endFill=1;dashed=1;" edge="1" parent="1" source="step3" target="step3a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#b0e3e6;strokeColor=#0e8088;endArrow=classic;endFill=1;dashed=1;" edge="1" parent="1" source="step3a" target="step3b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" edge="1" parent="1" source="step3" target="decision1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow7" value="NO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;endArrow=classic;endFill=1;fontSize=11;fontStyle=1" edge="1" parent="1" source="decision1" target="invalid-path">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;endArrow=classic;endFill=1;" edge="1" parent="1" source="invalid-path" target="invalid-result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;endArrow=classic;endFill=1;" edge="1" parent="1" source="invalid-result" target="invalid-end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow10" value="YES" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;endArrow=classic;endFill=1;fontSize=11;fontStyle=1" edge="1" parent="1" source="decision1" target="step4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;endArrow=classic;endFill=1;dashed=1;" edge="1" parent="1" source="step4" target="step4a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#b0e3e6;strokeColor=#0e8088;endArrow=classic;endFill=1;dashed=1;" edge="1" parent="1" source="step4a" target="step4b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" edge="1" parent="1" source="step4" target="step5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;endArrow=classic;endFill=1;dashed=1;" edge="1" parent="1" source="step5" target="step5a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#fad9d5;strokeColor=#ae4132;endArrow=classic;endFill=1;dashed=1;" edge="1" parent="1" source="step5a" target="step5b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" edge="1" parent="1" source="step5" target="step6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;endArrow=classic;endFill=1;" edge="1" parent="1" source="step6" target="result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend-title" value="LEGEND" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="950" y="80" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" value="─────▶  Data Flow" style="text;html=1;strokeColor=#6c8ebf;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="950" y="110" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" value="- - - - ▶  MCP/API Call" style="text;html=1;strokeColor=#b85450;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="135" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="950" y="165" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3-text" value="Agent" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="975" y="163" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="950" y="185" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4-text" value="✅ Implemented" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="975" y="183" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="950" y="205" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend5-text" value="Astra DB" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="975" y="203" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="950" y="225" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend6-text" value="Vector Search" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="975" y="223" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend7" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="950" y="245" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="legend7-text" value="Streamlit UI" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="975" y="243" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

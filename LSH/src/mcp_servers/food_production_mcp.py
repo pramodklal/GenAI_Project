@@ -78,51 +78,69 @@ class FoodProductionMCPServer(MCPServerBase):
         Returns:
             Demand forecast data
         """
-        forecast_date = datetime.fromisoformat(date)
-        day_of_week = forecast_date.strftime("%A")
-        
-        # Get historical orders from last 7 days
-        demand = {"breakfast": 0, "lunch": 0, "dinner": 0}
-        order_count = 0
-        
-        for i in range(1, 8):
-            historical_date = (forecast_date - timedelta(days=i*7)).isoformat()[:10]
-            orders = self.db.get_todays_orders(historical_date)
-            order_count += 1
-            for order in orders:
-                meal_time = order.get("meal_time", "lunch").lower()
-                if meal_time in demand:
-                    demand[meal_time] += 1
-        
-        # Average the demand
-        if order_count > 0:
-            for meal_time in demand:
-                demand[meal_time] = int(demand[meal_time] / order_count)
-        
-        # Default to reasonable numbers if no historical data
-        if sum(demand.values()) == 0:
-            demand = {"breakfast": 100, "lunch": 130, "dinner": 120}
-        
-        if meal_type:
-            demand = {meal_type: demand.get(meal_type, 0)}
-        
-        return {
-            "date": date,
-            "day_of_week": day_of_week,
-            "forecast": demand,
-            "confidence": 0.75 if order_count > 0 else 0.50,
-            "factors_considered": [
-                "historical_order_patterns",
-                "day_of_week",
-                f"last_{order_count}_weeks_data"
-            ],
-            "generated_at": datetime.now().isoformat()
-        }
+        try:
+            forecast_date = datetime.fromisoformat(date)
+            day_of_week = forecast_date.strftime("%A")
+            
+            # Get historical orders from last 7 weeks
+            demand = {"breakfast": 0, "lunch": 0, "dinner": 0, "snack": 0}
+            order_count = 0
+            
+            for i in range(1, 8):
+                historical_date = (forecast_date - timedelta(days=i*7)).isoformat()[:10]
+                orders = self.db.get_todays_orders(historical_date)
+                if orders:
+                    order_count += 1
+                    for order in orders:
+                        meal_time = order.get("meal_time", "lunch").lower()
+                        if meal_time in demand:
+                            demand[meal_time] += 1
+            
+            # Average the demand
+            if order_count > 0:
+                for meal_time in demand:
+                    demand[meal_time] = int(demand[meal_time] / order_count)
+            
+            # Default to reasonable numbers if no historical data
+            if sum(demand.values()) == 0:
+                demand = {"breakfast": 100, "lunch": 130, "dinner": 120, "snack": 30}
+            
+            if meal_type:
+                demand = {meal_type: demand.get(meal_type, 0)}
+            
+            # Calculate total
+            total_meals = sum(demand.values())
+            confidence_level = 0.85 if order_count >= 4 else (0.65 if order_count > 0 else 0.50)
+            
+            return {
+                "success": True,
+                "data": {
+                    "date": date,
+                    "day_of_week": day_of_week,
+                    "total_meals_forecasted": total_meals,
+                    "meal_breakdown": demand,
+                    "confidence_level": confidence_level,
+                    "weeks_analyzed": order_count,
+                    "items_forecast": [],
+                    "factors_considered": [
+                        "historical_order_patterns",
+                        "day_of_week",
+                        f"last_{order_count}_weeks_data"
+                    ],
+                    "generated_at": datetime.now().isoformat()
+                }
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Error generating forecast: {str(e)}"
+            }
     
     def _get_inventory_status(self, category: Optional[str] = None) -> Dict[str, Any]:
         """Get current inventory status from database."""
         # Get all inventory items
-        inventory_items = self.db.get_low_inventory_items(threshold=1000)  # Get all items
+        all_items = list(self.db.inventory.find({}, limit=1000))
+        inventory_items = all_items
         
         # Filter by category if specified
         if category:

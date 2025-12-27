@@ -6,7 +6,13 @@ Provides tools for environmental services task management, scheduling, and monit
 
 from typing import Dict, Any, List, Optional
 from datetime import datetime, timedelta
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
 from .base_mcp_server import MCPServerBase
+from database.astra_helper import get_db_helper
 
 
 class EVSTaskMCPServer(MCPServerBase):
@@ -14,6 +20,7 @@ class EVSTaskMCPServer(MCPServerBase):
     
     def __init__(self):
         super().__init__("evs_task_management", version="1.0.0")
+        self.db = get_db_helper()
         
     def _register_endpoints(self):
         """Register all EVS task management endpoints."""
@@ -104,8 +111,7 @@ class EVSTaskMCPServer(MCPServerBase):
             "inspection": 15
         }
         
-        return {
-            "success": True,
+        task_data = {
             "task_id": task_id,
             "location": location,
             "task_type": task_type,
@@ -116,74 +122,59 @@ class EVSTaskMCPServer(MCPServerBase):
             "created_at": datetime.utcnow().isoformat(),
             "due_by": (datetime.utcnow() + timedelta(hours=2)).isoformat()
         }
+        
+        # Save to database
+        try:
+            self.db.create_evs_task(task_data)
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to save task to database: {str(e)}"
+            }
+        
+        return {
+            "success": True,
+            "data": task_data
+        }
     
     def _get_pending_tasks(self, location: Optional[str] = None,
                           priority: Optional[str] = None,
                           task_type: Optional[str] = None) -> Dict[str, Any]:
-        """Get list of pending EVS tasks with optional filters."""
-        # Mock pending tasks
-        tasks = [
-            {
-                "task_id": "EVS-20241217-001",
-                "location": "Room 301",
-                "task_type": "terminal_cleaning",
-                "priority": "high",
-                "status": "pending",
-                "created_at": (datetime.utcnow() - timedelta(hours=1)).isoformat(),
-                "due_by": (datetime.utcnow() + timedelta(hours=1)).isoformat(),
-                "estimated_duration": 60
-            },
-            {
-                "task_id": "EVS-20241217-002",
-                "location": "Cafeteria",
-                "task_type": "daily_cleaning",
-                "priority": "medium",
-                "status": "pending",
-                "created_at": (datetime.utcnow() - timedelta(minutes=30)).isoformat(),
-                "due_by": (datetime.utcnow() + timedelta(hours=2)).isoformat(),
-                "estimated_duration": 30
-            },
-            {
-                "task_id": "EVS-20241217-003",
-                "location": "ICU Hallway",
-                "task_type": "disinfection",
-                "priority": "critical",
-                "status": "pending",
-                "created_at": (datetime.utcnow() - timedelta(minutes=10)).isoformat(),
-                "due_by": (datetime.utcnow() + timedelta(minutes=30)).isoformat(),
-                "estimated_duration": 45
-            },
-            {
-                "task_id": "EVS-20241217-004",
-                "location": "Room 215",
-                "task_type": "spill_cleanup",
-                "priority": "high",
-                "status": "pending",
-                "created_at": (datetime.utcnow() - timedelta(minutes=5)).isoformat(),
-                "due_by": (datetime.utcnow() + timedelta(minutes=15)).isoformat(),
-                "estimated_duration": 20
+        """Get list of pending EVS tasks with optional filters from database."""
+        try:
+            # Get tasks from database
+            all_tasks = self.db.get_evs_tasks()
+            
+            # Filter to pending/assigned/in_progress tasks
+            tasks = [t for t in all_tasks if t.get("status") in ["pending", "assigned", "in_progress"]]
+            
+            # Apply additional filters
+            if location:
+                tasks = [t for t in tasks if location.lower() in t.get("location", "").lower()]
+            if priority:
+                tasks = [t for t in tasks if t.get("priority") == priority]
+            if task_type:
+                tasks = [t for t in tasks if t.get("task_type") == task_type]
+            
+            return {
+                "success": True,
+                "data": {
+                    "tasks": tasks,
+                    "total_pending": len(tasks),
+                    "by_priority": {
+                        "critical": len([t for t in tasks if t.get("priority") == "critical"]),
+                        "high": len([t for t in tasks if t.get("priority") == "high"]),
+                        "medium": len([t for t in tasks if t.get("priority") == "medium"]),
+                        "low": len([t for t in tasks if t.get("priority") == "low"])
+                    },
+                    "retrieved_at": datetime.utcnow().isoformat()
+                }
             }
-        ]
-        
-        # Apply filters
-        if location:
-            tasks = [t for t in tasks if location.lower() in t["location"].lower()]
-        if priority:
-            tasks = [t for t in tasks if t["priority"] == priority]
-        if task_type:
-            tasks = [t for t in tasks if t["task_type"] == task_type]
-        
-        return {
-            "pending_tasks": tasks,
-            "total_pending": len(tasks),
-            "by_priority": {
-                "critical": len([t for t in tasks if t["priority"] == "critical"]),
-                "high": len([t for t in tasks if t["priority"] == "high"]),
-                "medium": len([t for t in tasks if t["priority"] == "medium"]),
-                "low": len([t for t in tasks if t["priority"] == "low"])
-            },
-            "retrieved_at": datetime.utcnow().isoformat()
-        }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Failed to retrieve tasks: {str(e)}"
+            }
     
     def _assign_task(self, task_id: str, staff_id: str,
                     notes: Optional[str] = None) -> Dict[str, Any]:

@@ -61,6 +61,16 @@ class AstraDBHelper:
         """Get patient food preferences"""
         return self.preferences.find_one({"patient_id": patient_id})
     
+    def create_patient(self, patient_data: Dict) -> str:
+        """Create new patient"""
+        patient_id = str(uuid.uuid4())
+        patient_data['patient_id'] = patient_id
+        patient_data['created_at'] = datetime.now().isoformat()
+        patient_data['updated_at'] = datetime.now().isoformat()
+        
+        self.patients.insert_one(patient_data)
+        return patient_id
+    
     # ===== MENU OPERATIONS =====
     
     def get_menu_item(self, item_id: str) -> Optional[Dict]:
@@ -199,6 +209,12 @@ class AstraDBHelper:
     
     # ===== EVS OPERATIONS =====
     
+    def get_evs_tasks(self, status: str = None, limit: int = 100) -> List[Dict]:
+        """Get EVS tasks with optional status filter"""
+        if status:
+            return list(self.evs_tasks.find({"status": status}, limit=limit))
+        return list(self.evs_tasks.find({}, limit=limit))
+    
     def get_evs_tasks_by_status(self, status: str, limit: int = 50) -> List[Dict]:
         """Get EVS tasks by status"""
         return list(self.evs_tasks.find({"status": status}, limit=limit))
@@ -240,9 +256,12 @@ class AstraDBHelper:
     
     # ===== INVENTORY OPERATIONS =====
     
-    def get_low_inventory_items(self) -> List[Dict]:
-        """Get inventory items below reorder level"""
+    def get_low_inventory_items(self, threshold: Optional[int] = None) -> List[Dict]:
+        """Get inventory items below reorder level or all items if threshold is high"""
         items = list(self.inventory.find({}, limit=1000))
+        if threshold and threshold >= 1000:
+            # Return all items if threshold is very high
+            return items
         return [
             item for item in items 
             if item.get('quantity', 0) <= item.get('reorder_level', 0)

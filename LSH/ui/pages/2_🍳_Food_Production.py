@@ -19,6 +19,7 @@ from agents import WasteReductionAgent
 
 # Initialize services
 @st.cache_resource
+@st.cache_resource
 def get_services():
     food_mcp = FoodProductionMCPServer()
     waste_agent = WasteReductionAgent()
@@ -52,11 +53,11 @@ with tab1:
     with st.spinner("Loading demand forecast..."):
         forecast_result = food_mcp.call_endpoint(
             "get_demand_forecast",
-            {"target_date": forecast_date.isoformat()}
+            {"date": forecast_date.isoformat()}
         )
         
         if forecast_result.get("success"):
-            forecast_data = forecast_result["data"]
+            forecast_data = forecast_result.get("data", {})
             
             # Display key metrics
             st.markdown("### 📈 Demand Forecast")
@@ -81,11 +82,17 @@ with tab1:
             
             # Meal type breakdown chart
             st.markdown("### 🍽️ Meal Type Distribution")
-            meal_df = pd.DataFrame([
-                {"Meal Type": k.title(), "Quantity": v}
-                for k, v in meal_breakdown.items()
-            ])
-            st.bar_chart(meal_df.set_index("Meal Type"))
+            if meal_breakdown:
+                meal_df = pd.DataFrame([
+                    {"Meal Type": k.title(), "Quantity": v}
+                    for k, v in meal_breakdown.items()
+                ])
+                if not meal_df.empty:
+                    st.bar_chart(meal_df.set_index("Meal Type"))
+                else:
+                    st.info("No meal data available for visualization")
+            else:
+                st.info("No meal breakdown data available")
             
             # Item-specific forecast
             st.markdown("### 📋 Top Items by Demand")
@@ -104,6 +111,23 @@ with tab1:
                 )
         else:
             st.error("Failed to load demand forecast")
+            error_msg = forecast_result.get("error", "Unknown error")
+            st.error(f"Error details: {error_msg}")
+            
+            # Show troubleshooting info
+            with st.expander("🔍 Troubleshooting"):
+                st.markdown("""
+                **Possible causes:**
+                1. No historical meal orders in database
+                2. Database connection issue
+                3. Invalid date format
+                
+                **Try:**
+                - Create some meal orders first (use Meal Ordering page)
+                - Check database connection
+                - Verify date is in correct format
+                """)
+                st.json(forecast_result)
     
     st.markdown("---")
     

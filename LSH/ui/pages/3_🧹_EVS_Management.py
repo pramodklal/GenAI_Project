@@ -19,6 +19,7 @@ from agents import EVSTaskPrioritizationAgent
 
 # Initialize services
 @st.cache_resource
+@st.cache_resource
 def get_services():
     evs_mcp = EVSTaskMCPServer()
     evs_agent = EVSTaskPrioritizationAgent()
@@ -220,16 +221,21 @@ with tab2:
                 st.error("Location is required")
             else:
                 with st.spinner("Creating task..."):
+                    # Build description with additional details
+                    task_description = description
+                    if patient_nearby:
+                        task_description += " [Patient nearby - minimal disruption required]"
+                    if isolation_required:
+                        task_description += " [ISOLATION PRECAUTIONS REQUIRED]"
+                    task_description += f" [Est. {estimated_duration} min]"
+                    
                     create_result = evs_mcp.call_endpoint(
                         "create_task",
                         {
-                            "task_type": task_type,
                             "location": location,
+                            "task_type": task_type,
                             "priority": priority,
-                            "description": description,
-                            "patient_nearby": patient_nearby,
-                            "isolation_required": isolation_required,
-                            "estimated_duration_minutes": estimated_duration
+                            "description": task_description
                         }
                     )
                     
@@ -238,9 +244,9 @@ with tab2:
                         st.markdown(f"""
                             <div class="success-box">
                                 <h3>✅ Task Created Successfully!</h3>
-                                <p><strong>Task ID:</strong> {task_data.get('task_id')}</p>
-                                <p><strong>Priority:</strong> {task_data.get('priority').upper()}</p>
-                                <p><strong>Status:</strong> {task_data.get('status').upper()}</p>
+                                <p><strong>Task ID:</strong> {task_data.get('task_id', 'N/A')}</p>
+                                <p><strong>Priority:</strong> {(task_data.get('priority') or 'medium').upper()}</p>
+                                <p><strong>Status:</strong> {(task_data.get('status') or 'pending').upper()}</p>
                             </div>
                         """, unsafe_allow_html=True)
                         

@@ -19,6 +19,7 @@ from agents import NutritionValidationAgent
 
 # Initialize services
 @st.cache_resource
+@st.cache_resource
 def get_services():
     db = get_db_helper()
     nutrition_agent = NutritionValidationAgent()
@@ -49,7 +50,7 @@ with tab1:
         st.stop()
     
     # Create patient selection dropdown
-    patient_options = {f"{p['name']} ({p['patient_id']}) - Room {p['room_number']}": p['patient_id'] for p in patients}
+    patient_options = {f"{p['name']} - Room {p['room_number']}": p['patient_id'] for p in patients}
     
     col1, col2 = st.columns(2)
     
@@ -276,12 +277,23 @@ with tab1:
                 scheduled_time = datetime.combine(delivery_date, delivery_time).isoformat()
                 
                 try:
-                    order_id = db.create_meal_order(
-                        patient_id=patient_id,
-                        meal_items=selected_items,
-                        meal_time=meal_time,
-                        scheduled_delivery_time=scheduled_time
-                    )
+                    order_data = {
+                        'patient_id': patient_id,
+                        'meal_items': selected_items,
+                        'meal_time': meal_time.lower(),
+                        'meal_type': meal_time.lower(),
+                        'order_date': delivery_date.isoformat(),
+                        'delivery_time': delivery_time.strftime('%H:%M:%S'),
+                        'scheduled_delivery_time': scheduled_time,
+                        'status': 'pending',
+                        'validated_by_ai': True,
+                        'validation_notes': validation_result.get('summary', 'Order validated successfully'),
+                        'total_calories': validation_result.get('nutritional_summary', {}).get('total_calories', 0),
+                        'warnings': validation_result.get('warnings', []),
+                        'patient_name': patient.get('name'),
+                        'room_number': patient.get('room_number')
+                    }
+                    order_id = db.create_meal_order(order_data)
                     
                     if order_id:
                         st.markdown(f"""
@@ -291,7 +303,7 @@ with tab1:
                                 <p><strong>Patient:</strong> {patient['name']} ({patient_id})</p>
                                 <p><strong>Room:</strong> {patient['room_number']}</p>
                                 <p><strong>Scheduled:</strong> {scheduled_time}</p>
-                                <p><strong>Status:</strong> PENDING</p>
+                                <p><strong>Status:</strong> Pending</p>
                             </div>
                         """, unsafe_allow_html=True)
                         
@@ -317,7 +329,7 @@ with tab2:
     with col1:
         # Optionally change patient
         all_patients = db.get_all_patients(limit=100)
-        history_patient_options = {f"{p['name']} ({p['patient_id']})": p['patient_id'] for p in all_patients}
+        history_patient_options = {f"{p['name']} - Room {p['room_number']}": p['patient_id'] for p in all_patients}
         
         selected_history_patient = st.selectbox(
             "Select Patient",
@@ -408,7 +420,7 @@ with tab3:
     with col1:
         # Use patient selection
         rec_patients = db.get_all_patients(limit=100)
-        rec_patient_options = {f"{p['name']} ({p['patient_id']})": p['patient_id'] for p in rec_patients}
+        rec_patient_options = {f"{p['name']} - Room {p['room_number']}": p['patient_id'] for p in rec_patients}
         
         selected_rec_patient = st.selectbox(
             "Select Patient",

@@ -19,12 +19,13 @@ The application will open in your default browser at `http://localhost:8501`
 
 ## Pages
 
-1. **Home Dashboard** - System overview and quick stats
-2. **Meal Ordering** - Patient meal ordering with AI validation
-3. **Food Production** - Production planning and waste reduction
-4. **EVS Management** - Task prioritization and assignment
-5. **Analytics** - Reports and performance metrics
-6. **System Status** - Health monitoring and configuration
+1. **🍽️ Meal Ordering** - Patient meal ordering with AI validation
+2. **🍳 Food Production** - Production planning and waste reduction
+3. **🧹 EVS Management** - Task prioritization and assignment
+4. **📊 Analytics** - Reports and performance metrics
+5. **📁 Data Import** - CSV data upload to Astra DB collections
+6. **⚙️ System Status** - Health monitoring and configuration
+7. **👤 Add Patient** - Patient registration and management
 
 ## Features
 

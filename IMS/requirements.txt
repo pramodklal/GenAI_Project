@@ -1,0 +1,49 @@
+# AWS SDK and Services
+boto3==1.34.18
+botocore==1.34.18
+
+# AWS Lambda Powertools (for logging, tracing, metrics)
+aws-lambda-powertools==2.31.0
+
+# OpenSearch Client
+opensearch-py==2.4.2
+requests-aws4auth==1.2.3
+
+# Data Processing
+numpy==1.24.3
+pandas==2.0.3
+
+# JSON Processing
+jsonschema==4.20.0
+pydantic==2.5.3
+
+# HTTP Requests
+requests==2.31.0
+urllib3==2.1.0
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Date/Time Processing
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Testing
+pytest==7.4.3
+pytest-mock==3.12.0
+moto==4.2.10  # AWS service mocking
+
+# Type Hints
+typing-extensions==4.9.0
+
+# Logging
+structlog==23.2.0
+
+# Retry Logic
+tenacity==8.2.3
+
+# UUID Generation
+uuid==1.30
+
+# Configuration Management
+pyyaml==6.0.1

@@ -615,6 +615,7 @@ This pilot project implements an AI-powered incident analysis and resolution rec
 
 ## 🤝 Support & Maintenance
 
-**Created by Code Insights @pramodklal**
+**Design & Developed by Code Insights @pramodklal**
 
 For questions or issues, contact the DevOps team or raise a ticket in ServiceNow.
+

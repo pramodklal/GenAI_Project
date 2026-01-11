@@ -1,0 +1,83 @@
+Hello Guys,
+
+
+
+I am back again with a GenAI RAG based application-MultiFIlesChatBOT using Gemini 2.0 & Gemini 1.5 model. RAG stands for Retrieval-Augmented Generation and this an AI framework that combines the power of large language models (LLMs) with external knowledge sources.
+
+
+
+This is an interesting application as users can upload three different types of files namely PDF,DOCX and TXT. They can upload max 200 MB per file . At the same time user can upload three format like PDF,DOCX and TXT files.
+
+ 
+
+
+
+This app based on technology : LangChan,FAISS(Facebook AI Similarity Search) vector database,Streamlit,Gemini,Python 
+
+Again Thanks Google for providing this model FREE for developers. 
+
+
+
+MultiFIlesChatBOT app is a Python application that allows the user to chat with multiple PDF documents. User can ask questions in natural language, in the same way as if you were to ask a human, and the application will provide relevant responses based on the content of the uploaded documents.
+
+
+
+
+
+
+
+Uses Cases are
+
+
+
+1. Organizations Knowledge Base Access
+
+2. Research and Data Analysis Assistants 
+
+3. Accelerate research in Life Science and Healthcare domain.
+
+4. Legal Document Analysis
+
+5. E-commerce Product Recommendation 
+
+
+
+My Expectations?
+
+
+
+As of now this app is hosted in Streamlit environment and please Use this app and share your valuable feedback..
+
+
+
+
+
+Here is link of the hosted application  
+
+
+
+https://pramodklal-geminiragbot.streamlit.app/
+
+
+
+Application source codes and supported file are available  at GitHub repository
+
+https://github.com/pramodklal/RAG_GEMINI_BOT
+
+
+
+I am working to extend this app to accepts CSV, Excel files as well.
+
+
+
+Please do subscribe my YouTube channel "Code Insights" to get update on AI related application. 
+
+https://www.youtube.com/@pramodklal
+
+
+
+
+
+Thanks In Advance .
+
+Pramod Lal

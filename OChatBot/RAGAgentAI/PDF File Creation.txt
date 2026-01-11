@@ -1,0 +1,81 @@
+PDF File Creation: Steps for Azure Function
+
+D:\Pramod\PythonAFAzureFileSharePDFDemo
+
+Step 1: Create soln in VS Code and implement logic
+Create Folder Local 
+Open with VS Code
+
+Open Azure Tab
+Create New Project-> Select PythonAFAzureFileSharePDFDemo -> Seclect Lanagugae-> Python-> Python Interpretter python 3.11.9
+ Select a template for your project first function-> Timer Trigger
+ Name of function ->azurefilesharepdf
+ cron expression->
+ HIT enter -> THIS WILL CREATE A FUNCTION SOLUTION STRUCTURE IN VS Code
+ 
+ Add Library in requirements.txt file
+ azure-functions
+azure-storage-file-share
+fpdf2
+
+Go to terminal and run below command
+pip install -r requirements.txt
+ 
+Step 2: Deploye to Azure portal as Azure Function 
+
+Soln->Azure-> Deploye to Azure-> Create a new function app->azureportalPythonAFAzureFileSharePDFDemo
+Select a location for new resources
+Select a runtime stack ->Python 3.11
+Select resource authentication type->Secrets
+
+THIS STEPS CREATE Function IN AZURE PORTAL
+
+POP UP WINDOW APPER : ARE YOU SURE WANT TO Deploye
+
+Step 3: If step 2 fail OR not want to create via VS code then create function in portal
+Created function in poral pramodafpdf61225
+
+Soln->Azure-> Deploye to Azure-> select newly function app->pramodafpdf61225
+
+deployed successfull
+========================
+LOG DETAILS
+
+9:07:13 PM pramodafpdf61225: Creating zip package...
+9:07:13 PM pramodafpdf61225: Adding 4 files to zip package...
+9:07:13 PM pramodafpdf61225: d:\Pramod\PythonAFAzureFileSharePDFDemo\.funcignore
+9:07:13 PM pramodafpdf61225: d:\Pramod\PythonAFAzureFileSharePDFDemo\function_app.py
+9:07:13 PM pramodafpdf61225: d:\Pramod\PythonAFAzureFileSharePDFDemo\requirements.txt
+9:07:13 PM pramodafpdf61225: d:\Pramod\PythonAFAzureFileSharePDFDemo\host.json
+9:07:13 PM pramodafpdf61225: Zip package size: 1.83 kB
+9:07:14 PM pramodafpdf61225: Fetching changes.
+9:07:16 PM pramodafpdf61225: Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/b439f11c-495b-4876-b836-c4108fd0ded3.zip (0.00 MB) to /tmp/zipdeploy/extracted
+9:07:18 PM pramodafpdf61225: Updating submodules.
+9:07:19 PM pramodafpdf61225: Preparing deployment for commit id '46bbb786-9'.
+9:07:19 PM pramodafpdf61225: PreDeployment: context.CleanOutputPath False
+9:07:19 PM pramodafpdf61225: PreDeployment: context.OutputPath /home/site/wwwroot
+9:07:19 PM pramodafpdf61225: Repository path is /tmp/zipdeploy/extracted
+9:07:19 PM pramodafpdf61225: Running oryx build...
+9:07:19 PM pramodafpdf61225: Command: oryx build /tmp/zipdeploy/extracted -o /home/site/wwwroot --platform python --platform-version 3.11 -p packagedir=.python_packages/lib/site-packages
+9:07:20 PM pramodafpdf61225: Operation performed by Microsoft Oryx, https://github.com/Microsoft/Oryx
+9:07:20 PM pramodafpdf61225: You can report issues at https://github.com/Microsoft/Oryx/issues
+9:07:20 PM pramodafpdf61225: Oryx Version: 0.2.20230210.1, Commit: a49c8f6b8abbe95b4356552c4c884dea7fd0d86e, ReleaseTagName: 20230210.1
+9:07:20 PM pramodafpdf61225: Build Operation ID: 8ba2277b685f3286
+9:07:20 PM pramodafpdf61225: Repository Commit : 46bbb786-9704-4ae0-83b0-2b162817e554
+9:07:20 PM pramodafpdf61225: OS Type           : bullseye
+9:07:20 PM pramodafpdf61225: Image Type        : githubactions
+9:07:20 PM pramodafpdf61225: Detecting platforms...
+9:07:20 PM pramodafpdf61225: Detected following platforms:
+9:07:20 PM pramodafpdf61225:   python: 3.11.12
+9:07:20 PM pramodafpdf61225: Version '3.11.12' of platform 'python' is not installed. Generating script to install it...
+9:07:20 PM pramodafpdf61225: Source directory     : /tmp/zipdeploy/extracted
+9:07:20 PM pramodafpdf61225: Destination directory: /home/site/wwwroot
+9:07:20 PM pramodafpdf61225: Downloading and extracting 'python' version '3.11.12' to '/tmp/oryx/platforms/python/3.11.12'...
+9:07:20 PM pramodafpdf61225: Detected image debian flavor: bullseye.
+9:07:21 PM pramodafpdf61225: Downloaded in 1 sec(s).
+9:07:21 PM pramodafpdf61225: Verifying checksum...
+9:07:21 PM pramodafpdf61225: Extracting contents...
+9:07:35 PM pramodafpdf61225: Syncing triggers...
+9:07:39 PM pramodafpdf61225: Querying triggers...
+9:07:44 PM pramodafpdf61225: No HTTP triggers found.
+=================================================

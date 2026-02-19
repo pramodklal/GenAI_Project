@@ -1,0 +1,9 @@
+activity_id,agent_name,agent_type,action_type,timestamp,input_data,output_data,success,error_message,execution_time_ms,user_id,session_id
+ACT001,NutritionValidationAgent,validation,validate_meal,2025-12-17T08:00:00Z,"{""patient_id"":""P001"",""meal"":""Grilled Chicken""}","{""valid"":true,""warnings"":[]}",TRUE,None,1250,SYSTEM,SES001
+ACT002,NutritionValidationAgent,validation,validate_meal,2025-12-17T08:15:00Z,"{""patient_id"":""P002"",""meal"":""Oatmeal""}","{""valid"":true,""warnings"":[""Check dairy content""]}",TRUE,None,1100,SYSTEM,SES002
+ACT003,EVSPrioritizationAgent,prioritization,prioritize_tasks,2025-12-17T09:00:00Z,"{""tasks"":[""T001"",""T002"",""T003""]}","{""priority_order"":[""T002"",""T001"",""T003""]}",TRUE,None,850,EVS001,SES003
+ACT004,WasteReductionAgent,optimization,forecast_demand,2025-12-17T10:00:00Z,"{""date"":""2025-12-18"",""meal_type"":""lunch""}","{""estimated_meals"":125,""confidence"":0.89}",TRUE,None,2100,KITCHEN_MGR,SES004
+ACT005,MealRecommendationAgent,recommendation,suggest_meals,2025-12-17T11:00:00Z,{"patient_id":"P003"},"{""recommendations"":[""MENU023"",""MENU045""]}",TRUE,None,1450,NURSE_01,SES005
+ACT006,NutritionValidationAgent,validation,validate_meal,2025-12-17T12:00:00Z,"{""patient_id"":""P004"",""meal"":""Bread""}","{""valid"":false,""warnings"":[""Contains gluten""]}",TRUE,None,980,SYSTEM,SES006
+ACT007,EVSPrioritizationAgent,prioritization,assign_staff,2025-12-17T13:00:00Z,{"task_id":"T005"},"{""assigned_to"":""EVS003"",""reason"":""Best skills match""}",TRUE,None,650,EVS_SUPERVISOR,SES007
+ACT008,ConversationalAgent,conversation,respond,2025-12-17T14:00:00Z,{"query":"What's for lunch?"},{"response":"Today's lunch options include..."},TRUE,None,1850,P001,SES008

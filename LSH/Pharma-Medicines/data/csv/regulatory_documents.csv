@@ -1,0 +1,11 @@
+document_id,document_type,title,regulatory_body,issue_date,expiry_date,status,file_location,created_at
+DOC-001,license,FDA Manufacturing License - Solid Dosage Forms,FDA,2023-01-15T00:00:00Z,2026-01-15T00:00:00Z,active,/documents/regulatory/FDA_License_2023.pdf,2023-01-20T09:00:00Z
+DOC-002,certificate,GMP Certificate - EU Standards,EMA,2024-06-10T00:00:00Z,2026-06-10T00:00:00Z,active,/documents/regulatory/GMP_Certificate_EU_2024.pdf,2024-06-15T10:30:00Z
+DOC-003,approval,NDA Approval - Amoxicillin 500mg,FDA,2020-03-15T00:00:00Z,2030-03-15T00:00:00Z,active,/documents/regulatory/NDA_Amoxicillin_2020.pdf,2020-03-20T11:00:00Z
+DOC-004,certificate,ISO 9001:2015 Quality Management Certificate,ISO,2024-09-01T00:00:00Z,2027-09-01T00:00:00Z,active,/documents/regulatory/ISO_9001_2024.pdf,2024-09-05T14:20:00Z
+DOC-005,license,State Manufacturing License - California,California Board of Pharmacy,2024-01-01T00:00:00Z,2025-03-31T00:00:00Z,active,/documents/regulatory/CA_License_2024.pdf,2024-01-10T08:30:00Z
+DOC-006,approval,ANDA Approval - Metformin 850mg,FDA,2019-11-20T00:00:00Z,2029-11-20T00:00:00Z,active,/documents/regulatory/ANDA_Metformin_2019.pdf,2019-11-25T09:15:00Z
+DOC-007,approval,ANDA Approval - Ibuprofen 400mg,FDA,2021-06-10T00:00:00Z,2031-06-10T00:00:00Z,active,/documents/regulatory/ANDA_Ibuprofen_2021.pdf,2021-06-15T10:45:00Z
+DOC-008,certificate,WHO GMP Certificate,WHO,2024-08-15T00:00:00Z,2027-08-15T00:00:00Z,active,/documents/regulatory/WHO_GMP_2024.pdf,2024-08-20T11:30:00Z
+DOC-009,certificate,ISO 14001:2015 Environmental Management,ISO,2024-10-01T00:00:00Z,2027-10-01T00:00:00Z,active,/documents/regulatory/ISO_14001_2024.pdf,2024-10-05T09:00:00Z
+DOC-010,license,DEA Registration Certificate,DEA,2023-07-01T00:00:00Z,2026-07-01T00:00:00Z,active,/documents/regulatory/DEA_Registration_2023.pdf,2023-07-10T10:15:00Z

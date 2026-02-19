@@ -1,0 +1,14 @@
+langchain
+langchain_community
+google-generativeai
+google-api-core
+langchain-openai
+openai
+docx2txt
+faiss-cpu
+PyPDF2
+streamlit
+langchain_google_genai
+python-dotenv
+python-docx
+Pillow

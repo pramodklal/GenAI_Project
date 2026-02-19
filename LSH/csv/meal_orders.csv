@@ -1,0 +1,9 @@
+order_id,patient_id,order_date,meal_type,delivery_time,status,validated_by_ai,validation_notes,prepared_at,delivered_at,rating,feedback,created_at,updated_at
+ORD001,P001,12/17/2025,breakfast,2025-12-17T08:00:00Z,delivered,TRUE,No conflicts detected,2025-12-17T07:15:00Z,2025-12-17T08:05:00Z,5,Great meal,2025-12-16T18:00:00Z,2025-12-17T08:05:00Z
+ORD002,P002,12/17/2025,breakfast,2025-12-17T08:15:00Z,delivered,TRUE,Lactose-free verified,2025-12-17T07:20:00Z,2025-12-17T08:18:00Z,4,Good,2025-12-16T18:15:00Z,2025-12-17T08:18:00Z
+ORD003,P003,12/17/2025,lunch,2025-12-17T12:00:00Z,prepared,TRUE,High protein confirmed,2025-12-17T11:30:00Z,None,None,None,2025-12-16T20:00:00Z,2025-12-17T11:30:00Z
+ORD004,P004,12/17/2025,lunch,2025-12-17T12:15:00Z,ordered,TRUE,Gluten-free ingredients,None,None,None,None,2025-12-17T08:30:00Z,2025-12-17T08:30:00Z
+ORD005,P005,12/17/2025,dinner,2025-12-17T18:00:00Z,ordered,TRUE,Halal certified,None,None,None,None,2025-12-17T10:00:00Z,2025-12-17T10:00:00Z
+ORD006,P006,12/17/2025,dinner,2025-12-17T18:15:00Z,ordered,TRUE,Vegan menu selected,None,None,None,None,2025-12-17T10:15:00Z,2025-12-17T10:15:00Z
+ORD007,P007,12/17/2025,breakfast,2025-12-17T08:30:00Z,delivered,TRUE,Soft texture approved,2025-12-17T07:45:00Z,2025-12-17T08:35:00Z,3,Too bland,2025-12-16T18:30:00Z,2025-12-17T08:35:00Z
+ORD008,P008,12/17/2025,lunch,2025-12-17T12:30:00Z,prepared,TRUE,Low-carb verified,2025-12-17T11:45:00Z,None,None,None,2025-12-16T20:30:00Z,2025-12-17T11:45:00Z

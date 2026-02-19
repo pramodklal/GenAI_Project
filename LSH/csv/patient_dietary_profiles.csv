@@ -1,0 +1,9 @@
+profile_id,patient_id,calories_target,protein_target_g,sodium_limit_mg,sugar_limit_g,fat_limit_g,texture_modification,fluid_restriction_ml,special_considerations,created_at,updated_at
+PROF001,P001,1800,75,2000,30,50,regular,None,Monitor blood glucose,2025-12-01T08:00:00Z,2025-12-17T08:00:00Z
+PROF002,P002,1600,60,2500,25,45,soft,None,Avoid lactose,2025-12-02T09:15:00Z,2025-12-17T09:15:00Z
+PROF003,P003,2200,90,3000,40,65,regular,None,High protein for recovery,2025-12-03T10:30:00Z,2025-12-17T10:30:00Z
+PROF004,P004,1700,65,2500,28,40,regular,None,Strict gluten-free,2025-12-04T11:45:00Z,2025-12-17T11:45:00Z
+PROF005,P005,1900,80,1500,25,45,regular,None,Heart-healthy fats only,2025-12-05T13:00:00Z,2025-12-17T13:00:00Z
+PROF006,P006,1650,70,2500,30,48,regular,None,Iron-rich vegan sources,2025-12-06T14:15:00Z,2025-12-17T14:15:00Z
+PROF007,P007,1500,60,2000,20,40,soft,1500,Easy to swallow,2025-12-07T15:30:00Z,2025-12-17T15:30:00Z
+PROF008,P008,1400,55,1800,15,35,regular,1200,Renal diet,2025-12-08T16:45:00Z,2025-12-17T16:45:00Z

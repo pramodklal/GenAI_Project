@@ -1,0 +1,11 @@
+material_id,name,type,supplier_id,batch_number,quantity_in_stock,unit,reorder_point,expiry_date,storage_location,status,last_updated
+MAT-101,Amoxicillin Trihydrate,API,SUP-001,AMX-API-2024-12-001,5500,kg,2000,2026-12-15T00:00:00Z,Warehouse A - Climate Controlled - Shelf A3,available,2025-02-10T09:30:00Z
+MAT-102,Metformin Hydrochloride,API,SUP-002,MET-API-2025-01-002,8200,kg,3000,2027-01-20T00:00:00Z,Warehouse A - Climate Controlled - Shelf B2,available,2025-02-08T14:15:00Z
+MAT-103,Ibuprofen,API,SUP-001,IBU-API-2025-01-005,6800,kg,2500,2027-01-25T00:00:00Z,Warehouse A - Climate Controlled - Shelf A5,available,2025-02-09T10:20:00Z
+MAT-104,Lisinopril,API,SUP-002,LIS-API-2024-12-010,3200,kg,1500,2026-12-20T00:00:00Z,Warehouse A - Climate Controlled - Shelf B4,available,2025-02-07T15:40:00Z
+MAT-105,Omeprazole,API,SUP-001,OME-API-2025-02-001,4500,kg,2000,2027-02-10T00:00:00Z,Warehouse A - Climate Controlled - Shelf A7,available,2025-02-11T09:15:00Z
+MAT-201,Microcrystalline Cellulose,excipient,SUP-003,MCC-EXC-2025-01-015,12500,kg,5000,2028-01-10T00:00:00Z,Warehouse B - Dry Storage - Section C,available,2025-02-05T11:20:00Z
+MAT-202,Croscarmellose Sodium,excipient,SUP-003,CCS-EXC-2024-12-008,850,kg,1000,2026-12-30T00:00:00Z,Warehouse B - Dry Storage - Section D,available,2025-02-09T16:45:00Z
+MAT-203,Magnesium Stearate,excipient,SUP-004,MGS-EXC-2025-01-003,650,kg,800,2027-01-15T00:00:00Z,Warehouse B - Dry Storage - Section E,available,2025-02-07T10:30:00Z
+MAT-204,Povidone K30,excipient,SUP-003,PVP-EXC-2025-01-012,2800,kg,1200,2027-01-18T00:00:00Z,Warehouse B - Dry Storage - Section C,available,2025-02-06T14:10:00Z
+MAT-205,Colloidal Silicon Dioxide,excipient,SUP-004,CSD-EXC-2024-11-020,580,kg,700,2026-11-25T00:00:00Z,Warehouse B - Dry Storage - Section F,available,2025-02-10T11:50:00Z

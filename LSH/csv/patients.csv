@@ -1,0 +1,9 @@
+patient_id,name,room_number,allergies,dietary_restrictions,medical_conditions,preferences,cultural_requirements,created_at,updated_at
+P001,John Smith,301A,"[""peanuts"",""shellfish""]","[""low-sodium"",""diabetic""]","[""Type 2 Diabetes"",""Hypertension""]","{""texture"":""regular"",""temperature"":""warm""}",None,2025-12-01T08:00:00Z,2025-12-17T08:00:00Z
+P002,Maria Garcia,302B,["dairy"],"[""lactose-free"",""vegetarian""]","[""IBS"",""Lactose Intolerance""]","{""texture"":""soft"",""temperature"":""warm""}",Hispanic,2025-12-02T09:15:00Z,2025-12-17T09:15:00Z
+P003,James Chen,303C,[],[],["Post-Surgery"],"{""texture"":""regular"",""temperature"":""hot""}",Asian,2025-12-03T10:30:00Z,2025-12-17T10:30:00Z
+P004,Sarah Johnson,304A,["gluten"],"[""gluten-free"",""low-fat""]",["Celiac Disease"],"{""texture"":""regular"",""temperature"":""warm""}",None,2025-12-04T11:45:00Z,2025-12-17T11:45:00Z
+P005,Ahmed Hassan,305B,["tree nuts"],"[""halal"",""heart-healthy""]",["Coronary Artery Disease"],"{""texture"":""regular"",""temperature"":""warm""}",Muslim,2025-12-05T13:00:00Z,2025-12-17T13:00:00Z
+P006,Emily Davis,306C,["eggs"],["vegan"],["Anemia"],"{""texture"":""regular"",""temperature"":""room""}",None,2025-12-06T14:15:00Z,2025-12-17T14:15:00Z
+P007,Robert Wilson,307A,[],[],["Pneumonia"],"{""texture"":""soft"",""temperature"":""warm""}",None,2025-12-07T15:30:00Z,2025-12-17T15:30:00Z
+P008,Linda Martinez,308B,["soy"],"[""low-carb"",""diabetic""]",["Type 1 Diabetes"],"{""texture"":""regular"",""temperature"":""warm""}",Hispanic,2025-12-08T16:45:00Z,2025-12-17T16:45:00Z

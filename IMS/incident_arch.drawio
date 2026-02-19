@@ -1,0 +1,154 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.10">
+  <diagram id="incident-arch" name="AI Incident Resolution Architecture">
+    <mxGraphModel dx="786" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#2C3E50;" value="AI Agentic Incident Resolution System - Architecture" vertex="1">
+          <mxGeometry height="40" width="600" x="284.5" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dynatrace" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;fontColor=#0D47A1;align=left;verticalAlign=top;fontSize=13;spacing=10;spacingLeft=15;" value="📊 Dynatrace&lt;br&gt;&lt;br&gt;• Infrastructure Monitoring&lt;br&gt;• Application Performance&lt;br&gt;• Real-time Alerting&lt;br&gt;• Anomaly Detection" vertex="1">
+          <mxGeometry height="140" width="240" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="servicenow" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;fontColor=#1B5E20;align=left;verticalAlign=top;fontSize=13;spacing=10;spacingLeft=15;" value="🎫 ServiceNow&lt;br&gt;&lt;br&gt;• Incident Creation&lt;br&gt;• Ticket Management&lt;br&gt;• Workflow Automation&lt;br&gt;• SLA Tracking" vertex="1">
+          <mxGeometry height="140" width="240" x="80" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="aws-ai" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FF9800;fontColor=#E65100;align=left;verticalAlign=top;fontSize=13;spacing=10;spacingLeft=15;" value="🧠 AWS Bedrock / SageMaker&lt;br&gt;&lt;br&gt;• LLM Models (Claude Sonnet 4.5)&lt;br&gt;• Incident Analysis&lt;br&gt;• Resolution Generation&lt;br&gt;• Natural Language Processing&lt;br&gt;• Pattern Recognition&lt;br&gt;• Agentic AI Orchestration&lt;br&gt;• Multi-agent Coordination" vertex="1">
+          <mxGeometry height="240" width="320" x="400" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-container" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#FFF8E1;strokeColor=#FF9800;fontColor=#E65100;rounded=1;fontSize=12;" value="🤖 Agentic AI Components" vertex="1">
+          <mxGeometry height="270" width="430" x="380" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-1" parent="agent-container" style="text;strokeColor=#3498DB;fillColor=#EBF5FB;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;rounded=1;" value="🔍 Agent 1: Incident Analyzer - Parse &amp; classify incidents, extract metadata" vertex="1">
+          <mxGeometry height="40" width="430" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-2" parent="agent-container" style="text;strokeColor=#3498DB;fillColor=#EBF5FB;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;rounded=1;" value="🔎 Agent 2: Resolution Searcher - Query vector DB, find similar cases" vertex="1">
+          <mxGeometry height="40" width="430" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-3" parent="agent-container" style="text;strokeColor=#3498DB;fillColor=#EBF5FB;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;rounded=1;" value="✨ Agent 3: Resolution Generator - Create action plans &amp; recommendations" vertex="1">
+          <mxGeometry height="40" width="430" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-4" parent="agent-container" style="text;strokeColor=#3498DB;fillColor=#EBF5FB;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;rounded=1;" value="⚡ Agent 4: Execution Agent - Execute resolution steps &amp; verify results" vertex="1">
+          <mxGeometry height="40" width="430" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-5" parent="agent-container" style="text;strokeColor=#2ECC71;fillColor=#E8F8F5;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;rounded=1;fontStyle=1" value="🎯 Agent 5: Orchestrator - Coordinate agents, manage workflows &amp; decisions" vertex="1">
+          <mxGeometry height="40" width="430" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="agent-6" parent="agent-container" style="text;strokeColor=#3498DB;fillColor=#EBF5FB;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;rounded=1;" value="📊 Agent 6: Monitor &amp; Logger - Track metrics, log activities &amp; performance" vertex="1">
+          <mxGeometry height="40" width="430" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="vector-db" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFEBE9;strokeColor=#8D6E63;fontColor=#5D4037;align=left;verticalAlign=top;fontSize=13;spacing=10;spacingLeft=15;" value="🗄️ AWS Vector Database&lt;br&gt;&lt;br&gt;• Historical Incidents&lt;br&gt;• Resolution Knowledge&lt;br&gt;• Embeddings Storage&lt;br&gt;• Semantic Search&lt;br&gt;• OpenSearch Service" vertex="1">
+          <mxGeometry height="140" width="260" x="820" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="documentation" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#26A69A;fontColor=#004D40;align=left;verticalAlign=top;fontSize=13;spacing=10;spacingLeft=15;" value="📝 Documentation System&lt;br&gt;&lt;br&gt;• Resolution Documents&lt;br&gt;• Best Practices&lt;br&gt;• Auto-indexing&lt;br&gt;• Version Control&lt;br&gt;• S3 Storage" vertex="1">
+          <mxGeometry height="140" width="260" x="820" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="user-interface" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;fontColor=#F57F17;align=left;verticalAlign=top;fontSize=13;spacing=10;spacingLeft=15;" value="🖥️ User Interface &amp; Dashboard&lt;br&gt;&lt;br&gt;• Real-time Monitoring&lt;br&gt;• Manual Incident Submission&lt;br&gt;• Resolution Tracking&lt;br&gt;• Analytics &amp; Reports&lt;br&gt;• Admin Console" vertex="1">
+          <mxGeometry height="160" width="260" x="80" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="api-gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#8E24AA;fontColor=#4A148C;align=left;verticalAlign=top;fontSize=13;spacing=10;spacingLeft=15;" value="🌐 API Gateway &amp; Integration&lt;br&gt;&lt;br&gt;• REST API Endpoints&lt;br&gt;• Webhook Receivers&lt;br&gt;• External System Integration&lt;br&gt;• Authentication (OAuth2)&lt;br&gt;• Rate Limiting" vertex="1">
+          <mxGeometry height="160" width="260" x="820" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-ui-servicenow" edge="1" parent="1" source="user-interface" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#F57F17;fontSize=11;fontColor=#F57F17;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="servicenow" value="Manual Trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-ui-ai" edge="1" parent="1" source="user-interface" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#F57F17;fontSize=11;fontColor=#F57F17;fontStyle=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.9;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="aws-ai" value="Monitor Status">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-api-ai" edge="1" parent="1" source="api-gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#8E24AA;fontSize=11;fontColor=#8E24AA;fontStyle=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.9;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="aws-ai" value="API Invoke">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-api-servicenow" edge="1" parent="1" source="api-gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#8E24AA;fontSize=11;fontColor=#8E24AA;fontStyle=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="servicenow" value="Webhook">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" edge="1" parent="1" source="dynatrace" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#E74C3C;fontSize=12;fontColor=#E74C3C;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="servicenow" value="Alert Trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" source="servicenow" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#3498DB;fontSize=12;fontColor=#3498DB;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="aws-ai" value="Incident Data (JSON)">
+          <mxGeometry relative="1" x="-0.1" y="-15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" source="aws-ai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#9B59B6;fontSize=12;fontColor=#9B59B6;fontStyle=1;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="vector-db" value="Query Similar Incidents">
+          <mxGeometry relative="1" y="-15" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" edge="1" parent="1" source="vector-db" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2ECC71;fontSize=12;fontColor=#2ECC71;fontStyle=1;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=1;entryY=0.4;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;entryPerimeter=0;" target="aws-ai" value="Ranked Results">
+          <mxGeometry relative="1" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" edge="1" parent="1" source="aws-ai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#F39C12;fontSize=12;fontColor=#F39C12;fontStyle=1;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="documentation" value="Update Knowledge">
+          <mxGeometry relative="1" y="-15" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2ECC71;fontSize=12;fontColor=#2ECC71;fontStyle=1;exitX=0;exitY=0.85;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" value="Resolution Plan">
+          <mxGeometry relative="1" x="0.2" y="20" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="358" />
+              <mxPoint x="360" y="399" />
+            </Array>
+            <mxPoint x="400" y="358" as="sourcePoint" />
+            <mxPoint x="320" y="399" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow7" edge="1" parent="1" source="aws-ai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#34495E;fontSize=11;fontColor=#34495E;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="agent-container" value="Orchestration">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-box" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#F8F9FA;strokeColor=#2C3E50;fontColor=#2C3E50;rounded=1;fontSize=12;" value="📋 Workflow Legend" vertex="1">
+          <mxGeometry height="270" width="260" x="70" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-1" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="1️⃣ Dynatrace detects anomaly" vertex="1">
+          <mxGeometry height="30" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-2" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="2️⃣ Alert triggers ServiceNow ticket" vertex="1">
+          <mxGeometry height="30" width="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-3" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="3️⃣ AI analyzes incident details" vertex="1">
+          <mxGeometry height="30" width="260" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-4" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="4️⃣ Vector DB searches similar cases" vertex="1">
+          <mxGeometry height="30" width="260" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-5" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="5️⃣ AI generates resolution plan" vertex="1">
+          <mxGeometry height="30" width="260" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-6" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="6️⃣ Execute resolution steps" vertex="1">
+          <mxGeometry height="30" width="260" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-7" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="7️⃣ Update ServiceNow ticket" vertex="1">
+          <mxGeometry height="30" width="260" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-8" parent="legend-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;fontColor=#2C3E50;" value="8️⃣ Store knowledge for future" vertex="1">
+          <mxGeometry height="30" width="260" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-stack" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#FCE4EC;strokeColor=#AD1457;fontColor=#880E4F;rounded=1;fontSize=12;" value="🛠️ Technology Stack" vertex="1">
+          <mxGeometry height="270" width="260" x="820" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-1" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="☁️ AWS Services (Lambda, API Gateway)" vertex="1">
+          <mxGeometry height="30" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-2" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🧠 AWS Bedrock (Claude Sonnet 4.5)" vertex="1">
+          <mxGeometry height="30" width="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-3" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🗄️ OpenSearch (Vector Database)" vertex="1">
+          <mxGeometry height="30" width="260" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-4" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="💾 RDS PostgreSQL (Metadata)" vertex="1">
+          <mxGeometry height="30" width="260" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-5" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="📦 S3 (Document Storage)" vertex="1">
+          <mxGeometry height="30" width="260" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-6" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🐍 Python + LangChain Framework" vertex="1">
+          <mxGeometry height="30" width="260" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-7" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🔒 IAM (Security &amp; Access Control)" vertex="1">
+          <mxGeometry height="30" width="260" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-8" parent="tech-stack" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="📊 CloudWatch (Monitoring &amp; Logs)" vertex="1">
+          <mxGeometry height="30" width="260" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#2C3E50;fontStyle=1;" value="Created by Code Insights     @pramodklal" vertex="1">
+          <mxGeometry height="25" width="400" x="700" y="950" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

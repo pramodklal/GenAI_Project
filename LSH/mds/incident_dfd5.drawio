@@ -1,0 +1,166 @@
+<mxfile host="65bd71144e">
+    <diagram id="incident-dfd-pilot" name="AI Incident Resolution Pilot - Data Flow">
+        <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="AI Incident Resolution - Pilot Project Data Flow Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#2C3E50;" vertex="1" parent="1">
+          <mxGeometry x="184.5" y="20" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="subtitle" value="Phase 1: Analysis &amp; Recommendation Only (No Auto-Execution)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=2;fontColor=#7F8C8D;" vertex="1" parent="1">
+          <mxGeometry x="334.5" y="65" width="500" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 1: Dynatrace Alert -->
+        <mxCell id="step1" value="1️⃣ Dynatrace Alert&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: JSON&lt;br&gt;{&lt;br&gt;  alert_id: &quot;ALT-12345&quot;,&lt;br&gt;  severity: &quot;CRITICAL&quot;,&lt;br&gt;  timestamp: datetime,&lt;br&gt;  entity_name: &quot;app-server-01&quot;,&lt;br&gt;  problem_title: string,&lt;br&gt;  metrics: {cpu: 95%, mem: 89%}&lt;br&gt;}&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#E57373;fontColor=#C62828;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="220" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 2: ServiceNow Incident -->
+        <mxCell id="step2" value="2️⃣ ServiceNow Incident&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: JSON&lt;br&gt;{&lt;br&gt;  incident_number: &quot;INC0012345&quot;,&lt;br&gt;  description: &quot;High CPU usage...&quot;,&lt;br&gt;  priority: 1 (Critical),&lt;br&gt;  urgency: 1 (High),&lt;br&gt;  state: &quot;New&quot;,&lt;br&gt;  category: &quot;Performance&quot;,&lt;br&gt;  assignment_group: string&lt;br&gt;}&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#66BB6A;fontColor=#2E7D32;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="80" y="360" width="220" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 3: AI Orchestrator -->
+        <mxCell id="step3" value="3️⃣ AI Orchestrator&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Processing:&lt;br&gt;• Receive incident payload&lt;br&gt;• Validate JSON schema&lt;br&gt;• Extract key fields&lt;br&gt;• Enrich with metadata&lt;br&gt;• Create processing context&lt;br&gt;• Route to analyzer&lt;br&gt;&lt;br&gt;Output: Structured incident object&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#64B5F6;fontColor=#1565C0;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="360" y="120" width="220" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 4: Incident Analyzer -->
+        <mxCell id="step4" value="4️⃣ Incident Analyzer&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Processing:&lt;br&gt;• NLP parsing of description&lt;br&gt;• Entity extraction (server, service)&lt;br&gt;• Incident classification&lt;br&gt;• Severity mapping&lt;br&gt;• Keyword generation&lt;br&gt;• Text embedding creation&lt;br&gt;&lt;br&gt;Output: {&lt;br&gt;  type: &quot;Performance&quot;,&lt;br&gt;  keywords: [...],&lt;br&gt;  embedding: float[1536]&lt;br&gt;}&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#BA68C8;fontColor=#6A1B9A;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="220" height="200" as="geometry" />
+        </mxCell>
+        
+        <!-- Vector DB Query -->
+        <mxCell id="vector-query" value="🔍 Vector DB Query&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Query Process:&lt;br&gt;• Receive embedding vector&lt;br&gt;• Perform cosine similarity&lt;br&gt;• Apply filters (type, severity)&lt;br&gt;• Rank by similarity score&lt;br&gt;• Return top 5 matches&lt;br&gt;&lt;br&gt;Similarity Threshold: 0.75+&lt;br&gt;Vector Dimension: 1536&lt;br&gt;Database: AWS OpenSearch&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFEBE9;strokeColor=#A1887F;fontColor=#5D4037;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="920" y="120" width="220" height="200" as="geometry" />
+        </mxCell>
+        
+        <!-- Step 5: Resolution Generator -->
+        <mxCell id="step5" value="5️⃣ Resolution Generator&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;AI Processing (Claude Sonnet 4.5):&lt;br&gt;• Analyze 5 similar incidents&lt;br&gt;• Extract common patterns&lt;br&gt;• Identify root cause&lt;br&gt;• Synthesize resolution steps&lt;br&gt;• Generate recommendations&lt;br&gt;• Calculate confidence score&lt;br&gt;&lt;br&gt;Output: Recommendation Report&lt;br&gt;Confidence: 0.0 - 1.0&lt;br&gt;Risk Level: Low/Medium/High&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FFB74D;fontColor=#E65100;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="920" y="380" width="220" height="200" as="geometry" />
+        </mxCell>
+        
+        <!-- Output Report -->
+        <mxCell id="output-report" value="📋 Resolution Recommendation Report&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;SECTION 1: Similar Past Incidents&lt;br&gt;[&lt;br&gt;  {id: &quot;INC0011234&quot;, date: &quot;2025-12-15&quot;, similarity: 0.94},&lt;br&gt;  {id: &quot;INC0010987&quot;, date: &quot;2025-11-28&quot;, similarity: 0.89},&lt;br&gt;  {id: &quot;INC0010456&quot;, date: &quot;2025-11-10&quot;, similarity: 0.86},&lt;br&gt;  ... (Top 5 matches)&lt;br&gt;]&lt;br&gt;&lt;br&gt;SECTION 2: Root Cause Analysis&lt;br&gt;{&lt;br&gt;  primary_cause: &quot;Memory leak in Java process&quot;,&lt;br&gt;  contributing_factors: [&quot;High traffic&quot;, &quot;Old JVM&quot;],&lt;br&gt;  affected_component: &quot;Application Server&quot;&lt;br&gt;}&lt;br&gt;&lt;br&gt;SECTION 3: Resolution Steps&lt;br&gt;[&lt;br&gt;  &quot;1. Restart application server&quot;,&lt;br&gt;  &quot;2. Monitor memory usage for 10 min&quot;,&lt;br&gt;  &quot;3. If persists, upgrade JVM to v17&quot;,&lt;br&gt;  &quot;4. Enable GC logging for analysis&quot;&lt;br&gt;]&lt;br&gt;&lt;br&gt;SECTION 4: Metadata&lt;br&gt;{&lt;br&gt;  confidence_score: 0.91,&lt;br&gt;  risk_level: &quot;Low&quot;,&lt;br&gt;  estimated_time: &quot;15-20 minutes&quot;,&lt;br&gt;  success_rate: &quot;95% (based on history)&quot;&lt;br&gt;}&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;fontColor=#F57F17;align=left;verticalAlign=top;fontSize=11;spacing=10;spacingLeft=15;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="380" width="500" height="340" as="geometry" />
+        </mxCell>
+        
+        <!-- Manual Review Box -->
+        <mxCell id="manual-review" value="👤 Engineer Review &amp; Manual Execution&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Engineer Actions:&lt;br&gt;• Reviews recommendation report&lt;br&gt;• Validates root cause analysis&lt;br&gt;• Assesses risk level&lt;br&gt;• Manually executes steps&lt;br&gt;• Documents outcome&lt;br&gt;• Updates ServiceNow ticket&lt;br&gt;• Provides feedback (success/failure)&lt;br&gt;&lt;br&gt;⚠️ Pilot Phase: No Automation&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#BA68C8;fontColor=#4A148C;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="600" width="260" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Flow Arrows -->
+        
+        <!-- Arrow 1: Alert to ServiceNow -->
+        <mxCell id="flow1" value="Webhook POST&lt;br&gt;HTTP 200 OK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#E74C3C;fontSize=10;fontColor=#E74C3C;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow 2: ServiceNow to AI -->
+        <mxCell id="flow2" value="REST API Call&lt;br&gt;Incident JSON Payload" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#3498DB;fontSize=10;fontColor=#3498DB;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow 3: AI to Analyzer -->
+        <mxCell id="flow3" value="Extract &amp; Parse&lt;br&gt;Structured Metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#9B59B6;fontSize=10;fontColor=#9B59B6;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="step3" target="step4">
+          <mxGeometry relative="1" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow 4: Analyzer to Vector DB -->
+        <mxCell id="flow4" value="Semantic Query&lt;br&gt;Embedding Vector [1536]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#8B4513;fontSize=10;fontColor=#8B4513;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1" source="step4" target="vector-query">
+          <mxGeometry relative="1" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow 5: Vector DB to Resolution Gen -->
+        <mxCell id="flow5" value="Similar Cases&lt;br&gt;Top 5 Matches + Metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2ECC71;fontSize=10;fontColor=#2ECC71;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="vector-query" target="step5">
+          <mxGeometry relative="1" y="12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow 6: Resolution to Report -->
+        <mxCell id="flow6" value="Generate Report&lt;br&gt;4-Section Document" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#F39C12;fontSize=10;fontColor=#F39C12;fontStyle=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="step5" target="output-report">
+          <mxGeometry relative="1" y="12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow 7: Report to Manual Review -->
+        <mxCell id="flow7" value="Present to Engineer&lt;br&gt;Web Dashboard / Email" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#8E24AA;fontSize=10;fontColor=#8E24AA;fontStyle=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1" source="output-report" target="manual-review">
+          <mxGeometry relative="1" y="12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow 8: Manual to ServiceNow -->
+        <mxCell id="flow8" value="Update Status&lt;br&gt;Add Work Notes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#16A085;fontSize=10;fontColor=#16A085;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1" source="manual-review" target="step2">
+          <mxGeometry relative="1" x="-0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Info Boxes -->
+        
+        <!-- Pilot Metrics Box -->
+        <mxCell id="metrics-box" value="📊 Pilot Success Metrics" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#E8F8F5;strokeColor=#16A085;fontColor=#2C3E50;rounded=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="400" y="740" width="320" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="metric-1" value="⚡ Recommendation Generation: &lt;3 seconds" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="metrics-box">
+          <mxGeometry y="30" width="320" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="metric-2" value="⚡ Accuracy Rate: Target 85%+ correct recommendations" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="metrics-box">
+          <mxGeometry y="52" width="320" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="metric-3" value="⚡ Engineer Satisfaction: Collect feedback scores" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="metrics-box">
+          <mxGeometry y="74" width="320" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="metric-4" value="⚡ Time Savings: Measure avg resolution time reduction" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="metrics-box">
+          <mxGeometry y="96" width="320" height="22" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Volume Box -->
+        <mxCell id="volume-box" value="📈 Pilot Data Scope" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#FEF5E7;strokeColor=#F39C12;fontColor=#2C3E50;rounded=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="760" y="740" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="volume-1" value="📦 Historical Incidents: 1,000+ in Vector DB" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="volume-box">
+          <mxGeometry y="30" width="300" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="volume-2" value="📦 Pilot Duration: 30 days" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="volume-box">
+          <mxGeometry y="52" width="300" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="volume-3" value="📦 Target Incidents: 50-100 test cases" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="volume-box">
+          <mxGeometry y="74" width="300" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="volume-4" value="📦 Focus Area: Performance &amp; Availability incidents" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" vertex="1" parent="volume-box">
+          <mxGeometry y="96" width="300" height="22" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="footer" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#2C3E50;fontStyle=1;" value="Created by Code Insights     @pramodklal" vertex="1">
+          <mxGeometry height="25" width="400" x="750" y="790" as="geometry" />
+        </mxCell>
+        
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,7 @@
+schedule_id,date,meal_type,estimated_meals,forecasted_by_ai,confidence_score,actual_meals_produced,waste_amount_kg,staff_assigned,supervisor,status,notes,created_at,updated_at
+SCH001,12/17/2025,breakfast,120,TRUE,0.92,118,2.5,"[""COOK_01"",""COOK_02"",""PREP_01""]",KITCHEN_MGR,completed,Slightly under forecast,2025-12-16T16:00:00Z,2025-12-17T09:00:00Z
+SCH002,12/17/2025,lunch,145,TRUE,0.88,150,4.2,"[""COOK_01"",""COOK_03"",""PREP_01"",""PREP_02""]",KITCHEN_MGR,in-progress,Higher demand than expected,2025-12-16T16:00:00Z,2025-12-17T11:30:00Z
+SCH003,12/17/2025,dinner,130,TRUE,0.9,None,None,"[""COOK_02"",""COOK_03"",""PREP_02""]",KITCHEN_MGR,scheduled,None,2025-12-16T16:00:00Z,2025-12-17T08:00:00Z
+SCH004,12/18/2025,breakfast,125,TRUE,0.85,None,None,"[""COOK_01"",""COOK_02"",""PREP_01""]",KITCHEN_MGR,scheduled,None,2025-12-17T14:00:00Z,2025-12-17T14:00:00Z
+SCH005,12/18/2025,lunch,140,TRUE,0.87,None,None,"[""COOK_01"",""COOK_03"",""PREP_01"",""PREP_02""]",KITCHEN_MGR,scheduled,None,2025-12-17T14:00:00Z,2025-12-17T14:00:00Z
+SCH006,12/18/2025,dinner,135,TRUE,0.89,None,None,"[""COOK_02"",""COOK_03"",""PREP_02""]",KITCHEN_MGR,scheduled,None,2025-12-17T14:00:00Z,2025-12-17T14:00:00Z

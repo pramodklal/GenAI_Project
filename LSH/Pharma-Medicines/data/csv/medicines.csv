@@ -1,0 +1,6 @@
+medicine_id,name,generic_name,dosage_form,strength,therapeutic_category,storage_conditions,shelf_life_months,fda_approved,ema_approved,approval_date,stability_study,status,created_at,updated_at
+MED-001,Amoxicillin 500mg,Amoxicillin Trihydrate,tablet,500mg,Antibiotics - Penicillins,"Store at 20-25°C (68-77°F)",36,true,true,2020-03-15T00:00:00Z,completed,active,2024-01-10T08:30:00Z,2025-01-05T14:20:00Z
+MED-002,Metformin 850mg,Metformin Hydrochloride,tablet,850mg,Antidiabetic - Biguanides,"Store at 15-30°C (59-86°F), protect from moisture",48,true,true,2019-11-20T00:00:00Z,completed,active,2024-02-15T10:00:00Z,2025-01-08T09:15:00Z
+MED-003,Ibuprofen 400mg,Ibuprofen,tablet,400mg,NSAIDs - Analgesics,Store below 25°C (77°F),36,true,true,2021-06-10T00:00:00Z,completed,active,2024-03-20T11:30:00Z,2025-01-10T16:45:00Z
+MED-004,Lisinopril 10mg,Lisinopril,tablet,10mg,Antihypertensive - ACE Inhibitors,"Store at 20-25°C (68-77°F)",24,true,true,2018-08-22T00:00:00Z,completed,active,2024-01-05T09:00:00Z,2024-12-28T10:30:00Z
+MED-005,Omeprazole 20mg,Omeprazole,capsule,20mg,Proton Pump Inhibitors,"Store at 15-30°C (59-86°F), protect from moisture",36,true,true,2017-05-15T00:00:00Z,completed,active,2024-02-01T08:30:00Z,2025-01-12T14:15:00Z

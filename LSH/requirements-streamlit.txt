@@ -1,0 +1,32 @@
+# ========================================
+# Healthcare Digital - Streamlit Cloud Requirements
+# Minimal dependencies for Streamlit Cloud deployment
+# ========================================
+
+# Core Framework
+streamlit>=1.31.0
+
+# AI & LLM
+openai>=1.30.0
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langchain-community>=0.3.0
+langgraph>=0.2.0
+
+# Database
+astrapy>=1.4.0
+python-dotenv>=1.0.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization
+plotly>=5.18.0
+
+# Utilities
+pydantic>=2.0.0
+httpx>=0.26.0
+
+# Optional: MCP (only if using MCP server on cloud)
+# mcp>=1.0.0

@@ -1,0 +1,126 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.10">
+  <diagram id="incident-dfd" name="AI Incident Resolution Data Flow">
+    <mxGraphModel dx="786" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#2C3E50;" value="AI Agentic Incident Resolution - Data Flow Diagram" vertex="1">
+          <mxGeometry height="40" width="700" x="234.5" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="step1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#E57373;fontColor=#C62828;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="1️⃣ Dynatrace Alert&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: JSON&lt;br&gt;{&lt;br&gt;  alert_id: string,&lt;br&gt;  severity: enum,&lt;br&gt;  timestamp: datetime,&lt;br&gt;  entity_name: string,&lt;br&gt;  problem_title: string,&lt;br&gt;  metrics: object&lt;br&gt;}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="200" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#66BB6A;fontColor=#2E7D32;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="2️⃣ ServiceNow Incident&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: JSON&lt;br&gt;{&lt;br&gt;  incident_number: string,&lt;br&gt;  description: text,&lt;br&gt;  priority: int(1-5),&lt;br&gt;  urgency: int(1-3),&lt;br&gt;  state: enum,&lt;br&gt;  category: string&lt;br&gt;}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="200" x="80" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="step3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#64B5F6;fontColor=#1565C0;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="3️⃣ AI Orchestrator&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: JSON Payload&lt;br&gt;• Receives incident data&lt;br&gt;• Validates schema&lt;br&gt;• Extracts metadata&lt;br&gt;• Routes to analyzers&lt;br&gt;• Initializes context&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="340" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="step4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#BA68C8;fontColor=#6A1B9A;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="4️⃣ Incident Analyzer&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: Structured&lt;br&gt;• Parse description&lt;br&gt;• Extract entities&lt;br&gt;• Classify incident type&lt;br&gt;• Identify severity&lt;br&gt;• Generate keywords&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="600" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFEBE9;strokeColor=#A1887F;fontColor=#5D4037;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="5️⃣ Vector DB Query&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: Embeddings&lt;br&gt;• Generate text embedding&lt;br&gt;• Vector: float[1536]&lt;br&gt;• Semantic search&lt;br&gt;• Similarity threshold: 0.75&lt;br&gt;• Top K results: 5&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="600" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="step6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FFB74D;fontColor=#E65100;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="6️⃣ Resolution Generator&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: Action Plan&lt;br&gt;{&lt;br&gt;  resolution_steps: array,&lt;br&gt;  commands: array,&lt;br&gt;  confidence: float,&lt;br&gt;  estimated_time: int,&lt;br&gt;  rollback_plan: array&lt;br&gt;}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="860" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FF9800;fontColor=#BF360C;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="7️⃣ Execution Agent&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: Commands&lt;br&gt;• Execute each step&lt;br&gt;• Monitor progress&lt;br&gt;• Capture outputs&lt;br&gt;• Handle errors&lt;br&gt;• Log execution trace&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="200" x="860" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="step8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#4DB6AC;fontColor=#00695C;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="8️⃣ Update Ticket&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: Resolution&lt;br&gt;{&lt;br&gt;  status: &quot;resolved&quot;,&lt;br&gt;  resolution_notes: text,&lt;br&gt;  time_to_resolve: int,&lt;br&gt;  steps_executed: array,&lt;br&gt;  confidence_score: float&lt;br&gt;}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="600" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="step9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#90A4AE;fontColor=#263238;align=left;verticalAlign=top;fontSize=12;spacing=10;spacingLeft=15;" value="9️⃣ Update Knowledge Base&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Data Format: Markdown Doc&lt;br&gt;• Incident summary&lt;br&gt;• Root cause analysis&lt;br&gt;• Resolution steps&lt;br&gt;• Lessons learned&lt;br&gt;• Generate embedding&lt;br&gt;• Index in vector DB&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="340" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" edge="1" parent="1" source="step1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#E74C3C;fontSize=10;fontColor=#E74C3C;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="step2" value="Webhook POST&lt;br&gt;HTTP 200 OK">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow2" edge="1" parent="1" source="step2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#3498DB;fontSize=10;fontColor=#3498DB;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="step3" value="REST API Call&lt;br&gt;Incident JSON">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" edge="1" parent="1" source="step3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#9B59B6;fontSize=10;fontColor=#9B59B6;fontStyle=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="step4" value="Extract &amp; Parse&lt;br&gt;Structured Data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" edge="1" parent="1" source="step4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#8B4513;fontSize=10;fontColor=#8B4513;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="step5" value="Semantic Query&lt;br&gt;Vector Search">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow5" edge="1" parent="1" source="step5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2ECC71;fontSize=10;fontColor=#2ECC71;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="step6" value="Similar Cases&lt;br&gt;Ranked Results (Top 5)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow6" edge="1" parent="1" source="step6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#F39C12;fontSize=10;fontColor=#F39C12;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="step7" value="Action Plan&lt;br&gt;Command Sequence">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow7" edge="1" parent="1" source="step7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#16A085;fontSize=10;fontColor=#16A085;fontStyle=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="step8" value="Execution Log&lt;br&gt;Status &amp; Results">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow8" edge="1" parent="1" source="step7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2C3E50;fontSize=10;fontColor=#2C3E50;fontStyle=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;" target="step9" value="Document Creation&lt;br&gt;Resolution Report">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="323" />
+              <mxPoint x="820" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow9" edge="1" parent="1" source="step9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#8B4513;fontSize=10;fontColor=#8B4513;fontStyle=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;dashed=1;" target="step5" value="Index Document&lt;br&gt;Store Embedding">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="schema-box" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#F8F9FA;strokeColor=#3498DB;fontColor=#2C3E50;rounded=1;fontSize=11;" value="📊 Data Formats &amp; Schemas" vertex="1">
+          <mxGeometry height="120" width="340" x="80" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="schema-1" parent="schema-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🔹 JSON - Incident &amp; API communication" vertex="1">
+          <mxGeometry height="22" width="340" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="schema-2" parent="schema-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🔹 Vector Embeddings - 1536-dimension float arrays" vertex="1">
+          <mxGeometry height="22" width="340" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="schema-3" parent="schema-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🔹 Markdown - Human-readable documentation" vertex="1">
+          <mxGeometry height="22" width="340" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="schema-4" parent="schema-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="🔹 Binary - Logs and execution traces" vertex="1">
+          <mxGeometry height="22" width="340" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="metrics-box" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#E8F8F5;strokeColor=#16A085;fontColor=#2C3E50;rounded=1;fontSize=11;" value="⏱️ Performance Metrics" vertex="1">
+          <mxGeometry height="120" width="320" x="460" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="metric-1" parent="metrics-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="⚡ Avg Processing Time: 3-5 seconds" vertex="1">
+          <mxGeometry height="22" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="metric-2" parent="metrics-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="⚡ Vector Search Latency: &lt;500ms" vertex="1">
+          <mxGeometry height="22" width="320" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="metric-3" parent="metrics-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="⚡ End-to-End Resolution: &lt;60 seconds" vertex="1">
+          <mxGeometry height="22" width="320" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="metric-4" parent="metrics-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="⚡ Throughput: 100+ incidents/minute" vertex="1">
+          <mxGeometry height="22" width="320" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="volume-box" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#FEF5E7;strokeColor=#F39C12;fontColor=#2C3E50;rounded=1;fontSize=11;" value="📈 Data Volume" vertex="1">
+          <mxGeometry height="120" width="300" x="820" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="volume-1" parent="volume-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="📦 Incidents Processed: ~10,000/day" vertex="1">
+          <mxGeometry height="22" width="300" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="volume-2" parent="volume-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="📦 Vector DB Size: 500K+ embeddings" vertex="1">
+          <mxGeometry height="22" width="300" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="volume-3" parent="volume-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="📦 Knowledge Base: 50,000+ documents" vertex="1">
+          <mxGeometry height="22" width="300" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="volume-4" parent="volume-box" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;fontColor=#2C3E50;" value="📦 Success Rate: 85%+ auto-resolution" vertex="1">
+          <mxGeometry height="22" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#2C3E50;fontStyle=1;" value="Created by Code Insights     @pramodklal" vertex="1">
+          <mxGeometry height="25" width="400" x="750" y="799" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

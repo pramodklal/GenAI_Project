@@ -1,0 +1,225 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0" version="29.2.7">
+  <diagram name="Batch Manufacturing Data Flow" id="dataflow">
+    <mxGraphModel dx="1955" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" value="Batch Manufacturing - Complete Data Flow" vertex="1">
+          <mxGeometry height="40" width="700" x="350" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" value="Streamlit UI → Quality Agent → Production MCP → Astra DB → Vector Search → Real-time Validation" vertex="1">
+          <mxGeometry height="20" width="800" x="300" y="55" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 1: User Initiates Batch -->
+        <mxCell id="step1-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;" value="STEP 1: Initiate New Batch" vertex="1">
+          <mxGeometry height="100" width="300" x="100" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="User: Production Manager&#xa;UI: 🏭 Batch Production Page&#xa;&#xa;Actions:&#xa;• Select medicine (e.g., &quot;Amoxicillin 500mg&quot;)&#xa;• Enter batch quantity: 10,000 tablets&#xa;• Schedule date: 2025-12-20" vertex="1">
+          <mxGeometry height="75" width="280" x="110" y="125" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 1 -->
+        <mxCell id="arrow1" edge="1" parent="1" source="step1-box" target="step2-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#dae8fc;strokeColor=#6c8ebf;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="200" as="sourcePoint" />
+            <mxPoint x="250" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow1-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Submit Batch Request" vertex="1">
+          <mxGeometry height="20" width="130" x="185" y="205" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 2: Load Medicine & Material Data -->
+        <mxCell id="step2-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" value="STEP 2: Load Medicine &amp; Material Data" vertex="1">
+          <mxGeometry height="120" width="300" x="100" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="Database Queries:&#xa;&#xa;db.get_medicine(&quot;medicine_123&quot;)&#xa;  → name: &quot;Amoxicillin 500mg&quot;&#xa;  → dosage_form: &quot;Tablet&quot;&#xa;&#xa;db.get_formulation(&quot;medicine_123&quot;)&#xa;  → API: Amoxicillin trihydrate 574mg&#xa;  → Excipients: MCC, Starch, Magnesium Stearate&#xa;  → Batch formula for 10,000 units" vertex="1">
+          <mxGeometry height="95" width="280" x="110" y="265" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 2 -->
+        <mxCell id="arrow2" edge="1" parent="1" source="step2-box" target="step3-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#fff2cc;strokeColor=#d6b656;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Material Requirements" vertex="1">
+          <mxGeometry height="20" width="130" x="185" y="365" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 3: Production Optimization Agent -->
+        <mxCell id="step3-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;verticalAlign=top;" value="STEP 3: Production Optimization Agent" vertex="1">
+          <mxGeometry height="130" width="300" x="100" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="Agent: production_optimization_agent.py&#xa;&#xa;Actions:&#xa;• Calculate material requirements&#xa;  - API needed: 5.74 kg&#xa;  - Excipients: 4.26 kg&#xa;• Check inventory availability&#xa;• Allocate equipment: Tablet Press #3&#xa;• Generate production schedule:&#xa;  - Mixing: 2 hrs, Granulation: 3 hrs&#xa;  - Compression: 4 hrs, Coating: 2 hrs" vertex="1">
+          <mxGeometry height="105" width="280" x="110" y="425" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 3 -->
+        <mxCell id="arrow3" edge="1" parent="1" source="step3-box" target="step4-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#b1ddf0;strokeColor=#10739e;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Call MCP Endpoint" vertex="1">
+          <mxGeometry height="20" width="130" x="185" y="535" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 4: Production MCP Server -->
+        <mxCell id="step4-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;" value="STEP 4: Production MCP Server" vertex="1">
+          <mxGeometry height="100" width="300" x="100" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="step4-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="MCP: production_mcp.py (v1.0.0)&#xa;Endpoint: create_batch()&#xa;&#xa;Payload:&#xa;{&quot;medicine_id&quot;: &quot;medicine_123&quot;,&#xa; &quot;quantity&quot;: 10000,&#xa; &quot;schedule_date&quot;: &quot;2025-12-20&quot;,&#xa; &quot;equipment_id&quot;: &quot;PRESS-003&quot;}" vertex="1">
+          <mxGeometry height="75" width="280" x="110" y="595" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 4 -->
+        <mxCell id="arrow4" edge="1" parent="1" source="step4-box" target="step5-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#d5e8d4;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Insert to Astra DB" vertex="1">
+          <mxGeometry height="20" width="130" x="185" y="675" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 5: Create Batch in Database -->
+        <mxCell id="step5-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;verticalAlign=top;" value="STEP 5: Astra DB - Create Batch Record" vertex="1">
+          <mxGeometry height="120" width="300" x="100" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="step5-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="Collection: manufacturing_batches&#xa;&#xa;db.create_batch({&#xa;  batch_id: &quot;BATCH-2025-001&quot; (UUID),&#xa;  medicine_id: &quot;medicine_123&quot;,&#xa;  batch_number: &quot;AMX-500-20251220&quot;,&#xa;  quantity: 10000,&#xa;  stage: &quot;mixing&quot;,&#xa;  status: &quot;in_progress&quot;,&#xa;  manufacturing_date: &quot;2025-12-20&quot;&#xa;})" vertex="1">
+          <mxGeometry height="95" width="280" x="110" y="735" as="geometry" />
+        </mxCell>
+        
+        <!-- RIGHT SIDE: Quality Control Flow -->
+        
+        <!-- STEP 6: Quality Control Tests -->
+        <mxCell id="step6-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;" value="STEP 6: Quality Control Testing" vertex="1">
+          <mxGeometry height="150" width="350" x="500" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step6-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="After batch completion, QC tests performed:&#xa;&#xa;Test 1: Dissolution Test&#xa;  • Specification: ≥80% in 30 min&#xa;  • Result: 87.3% ✅&#xa;&#xa;Test 2: Assay (API content)&#xa;  • Specification: 95-105%&#xa;  • Result: 98.7% ✅&#xa;&#xa;Test 3: Microbial Test&#xa;  • Specification: &lt;1000 CFU/g&#xa;  • Result: 420 CFU/g ✅&#xa;&#xa;All tests submitted via Quality Control MCP" vertex="1">
+          <mxGeometry height="125" width="330" x="510" y="125" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 5 -->
+        <mxCell id="arrow5" edge="1" parent="1" source="step5-box" target="step6-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#666666;entryX=0;entryY=0.75;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="770" />
+              <mxPoint x="430" y="213" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow5-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Batch Complete" vertex="1">
+          <mxGeometry height="20" width="100" x="430" y="450" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 7: Quality Control Agent Analysis -->
+        <mxCell id="step7-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;verticalAlign=top;" value="STEP 7: Quality Control Agent" vertex="1">
+          <mxGeometry height="140" width="350" x="500" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="step7-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="Agent: quality_control_agent.py&#xa;&#xa;Actions:&#xa;• Validate all test results against specs&#xa;• Check for Out-of-Specification (OOS)&#xa;  → All tests PASSED ✅&#xa;• Generate Certificate of Analysis (COA)&#xa;• Update batch status to &quot;qc_approved&quot;&#xa;• Calculate yield: 9,845 / 10,000 = 98.45%&#xa;• Trigger approval workflow&#xa;&#xa;Recommendation: APPROVE BATCH for release" vertex="1">
+          <mxGeometry height="115" width="330" x="510" y="305" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 6 -->
+        <mxCell id="arrow6" edge="1" parent="1" source="step6-box" target="step7-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#e1d5e7;strokeColor=#9673a6;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Test Results" vertex="1">
+          <mxGeometry height="20" width="90" x="630" y="255" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 8: Vector Search for Similar Batches -->
+        <mxCell id="step8-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" value="STEP 8: Vector Search - Similar Formulations" vertex="1">
+          <mxGeometry height="130" width="350" x="500" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="step8-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="Collection: formulations ($vector)&#xa;&#xa;Query: &quot;Find similar antibiotic formulations&quot;&#xa;Embedding: OpenAI text-embedding-3-small (1536D)&#xa;&#xa;Results (Similarity Score):&#xa;1. Amoxicillin 250mg - 0.892 ✅&#xa;2. Ampicillin 500mg - 0.847 ✅&#xa;3. Cephalexin 500mg - 0.721 ✅&#xa;&#xa;Use Case: Quality comparison with similar batches" vertex="1">
+          <mxGeometry height="105" width="330" x="510" y="475" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 7 -->
+        <mxCell id="arrow7" edge="1" parent="1" source="step7-box" target="step8-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#b1ddf0;strokeColor=#10739e;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow7-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Quality Comparison" vertex="1">
+          <mxGeometry height="20" width="120" x="615" y="425" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 9: Regulatory Compliance Check -->
+        <mxCell id="step9-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;" value="STEP 9: Regulatory Compliance Validation" vertex="1">
+          <mxGeometry height="140" width="350" x="500" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="step9-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="Agent: regulatory_compliance_agent.py&#xa;&#xa;Checks:&#xa;• FDA DMF status: Valid (Expires 2026-06-30) ✅&#xa;• GMP certification: Active ✅&#xa;• Stability study: Approved (36 months shelf life) ✅&#xa;• Batch record completeness: 100% ✅&#xa;• 21 CFR Part 11 compliance: PASSED ✅&#xa;&#xa;Result: COMPLIANT for commercial release&#xa;Generate audit report to audit_logs collection" vertex="1">
+          <mxGeometry height="115" width="330" x="510" y="635" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 8 -->
+        <mxCell id="arrow8" edge="1" parent="1" source="step8-box" target="step9-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#fff2cc;strokeColor=#d6b656;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow8-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Compliance Check" vertex="1">
+          <mxGeometry height="20" width="110" x="620" y="585" as="geometry" />
+        </mxCell>
+        
+        <!-- STEP 10: Update Batch Status -->
+        <mxCell id="step10-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;" value="STEP 10: Update Batch Status to APPROVED" vertex="1">
+          <mxGeometry height="100" width="350" x="500" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="step10-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" value="MCP: production_mcp.update_batch_status()&#xa;&#xa;Update:&#xa;  batch_id: &quot;BATCH-2025-001&quot;&#xa;  status: &quot;approved&quot; (was &quot;qc_pending&quot;)&#xa;  approved_by: &quot;QA_Manager_001&quot;&#xa;  approved_date: &quot;2025-12-21T14:30:00Z&quot;&#xa;  yield_percentage: 98.45%" vertex="1">
+          <mxGeometry height="75" width="330" x="510" y="805" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 9 -->
+        <mxCell id="arrow9" edge="1" parent="1" source="step9-box" target="step10-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#f8cecc;strokeColor=#b85450;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow9-label" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=1" value="Approve Batch" vertex="1">
+          <mxGeometry height="20" width="100" x="625" y="755" as="geometry" />
+        </mxCell>
+        
+        <!-- FINAL: Display Success -->
+        <mxCell id="final-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;" value="RESULT: Batch Ready for Distribution" vertex="1">
+          <mxGeometry height="90" width="750" x="100" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="final-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1" value="✅ BATCH-2025-001: Amoxicillin 500mg Tablets - APPROVED&#xa;Quantity: 9,845 units | Yield: 98.45% | QC: PASSED | Compliance: ✅&#xa;Certificate of Analysis (COA) generated | Ready for commercial release" vertex="1">
+          <mxGeometry height="65" width="730" x="110" y="935" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow 10 -->
+        <mxCell id="arrow10" edge="1" parent="1" source="step10-box" target="final-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;fillColor=#d5e8d4;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;dashed=1;" value="" vertex="1">
+          <mxGeometry height="300" width="200" x="950" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" value="LEGEND" vertex="1">
+          <mxGeometry height="25" width="200" x="950" y="105" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-ui" parent="1" style="text;html=1;strokeColor=none;fillColor=#dae8fc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" value="  Streamlit UI" vertex="1">
+          <mxGeometry height="20" width="180" x="960" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-agent" parent="1" style="text;html=1;strokeColor=none;fillColor=#b1ddf0;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" value="  AI Agents" vertex="1">
+          <mxGeometry height="20" width="180" x="960" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-mcp" parent="1" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" value="  MCP Servers" vertex="1">
+          <mxGeometry height="20" width="180" x="960" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-db" parent="1" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;strokeColor=#666666;" value="  Astra DB" vertex="1">
+          <mxGeometry height="20" width="180" x="960" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-vector" parent="1" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" value="  Vector Search" vertex="1">
+          <mxGeometry height="20" width="180" x="960" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-compliance" parent="1" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" value="  Compliance Check" vertex="1">
+          <mxGeometry height="20" width="180" x="960" y="290" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-notes" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;" value="Key Collections:&#xa;• manufacturing_batches&#xa;• medicines&#xa;• formulations ($vector)&#xa;• quality_control_tests&#xa;• regulatory_documents&#xa;• audit_logs" vertex="1">
+          <mxGeometry height="90" width="180" x="960" y="320" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

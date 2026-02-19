@@ -1,0 +1,289 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.4.0">
+  <diagram name="Chat Request Data Flow" id="dataflow">
+    <mxGraphModel dx="1048" dy="601" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fillColor=#d5e8d4;" value="Chat Request Processing - ACTUAL DATA FLOW (Implemented)" vertex="1">
+          <mxGeometry height="40" width="700" x="200" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2" value="Next.js UI → /api/chat → Hybrid RAG → Azure OpenAI GPT-4o → Azure AI Search (6 Indexes) → Response" vertex="1">
+          <mxGeometry height="20" width="700" x="200" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" value="START&#xa;💬 User sends message in chat widget" vertex="1">
+          <mxGeometry height="50" width="220" x="450" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="step1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" value="1. AIChatWidget.tsx (React Component)" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-data" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" value="User Input:&#xa;• Query text string&#xa;• Chat history (messages[])&#xa;• Session context&#xa;&#xa;State Management:&#xa;• useState for messages&#xa;• Loading state&#xa;• Error handling" vertex="1">
+          <mxGeometry height="110" width="180" x="720" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="step2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1" value="2. POST /api/chat (Next.js API Route)" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-note" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;fontFamily=Courier New;" value="const response = await fetch(&#xa;  &#39;/api/chat&#39;,&#xa;  {&#xa;    method: &#39;POST&#39;,&#xa;    body: JSON.stringify({&#xa;      messages,&#xa;      userId&#xa;    })&#xa;  }&#xa;)" vertex="1">
+          <mxGeometry height="110" width="200" x="210" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="step3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1" value="3. ✅ Keyword Detection (lib/utils.ts)" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-actions" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" value="detectKeywords(query):&#xa;• &#39;order&#39; → orders-index&#xa;• &#39;return&#39; → returns-index&#xa;• &#39;customer&#39; → customers-index&#xa;• &#39;product&#39; → products-index&#xa;• &#39;policy&#39; → documents-index&#xa;&#xa;Returns: targetIndex[]" vertex="1">
+          <mxGeometry height="115" width="200" x="720" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="step4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" value="4. ✅ Hybrid Search Strategy Selection" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="step4-data" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" value="Query Analysis:&#xa;&#39;What&#39;s my order status?&#39;&#xa;→ Filter search (orders)&#xa;&#xa;&#39;Tell me about return policy&#39;&#xa;→ Vector search (documents)&#xa;&#xa;&#39;Show electronics under $500&#39;&#xa;→ Full-text search (products)" vertex="1">
+          <mxGeometry height="115" width="200" x="720" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="decision1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1" value="Search&#xa;Type?" vertex="1">
+          <mxGeometry height="100" width="140" x="490" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="path-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontSize=11;fontStyle=1;" value="A. Vector Search for Policy" vertex="1">
+          <mxGeometry height="35" width="180" x="150" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="step-a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=10;fontStyle=1;" value="A1. Generate Embeddings (Azure OpenAI)" vertex="1">
+          <mxGeometry height="30" width="180" x="150" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="step-a1-details" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="text-embedding-3-large:&#xa;Input: &#39;return policy question&#39;&#xa;Output: vector[3072]&#xa;Latency: ~100ms" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="step-a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontSize=10;fontStyle=1;" value="A2. Search documents-index (Vector)" vertex="1">
+          <mxGeometry height="30" width="180" x="150" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="step-a2-details" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="Azure AI Search:&#xa;HNSW algorithm&#xa;Cosine similarity&#xa;k=5 results&#xa;Score threshold: 0.7" vertex="1">
+          <mxGeometry height="65" width="120" x="20" y="652" as="geometry" />
+        </mxCell>
+        <mxCell id="step-a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontSize=10;" value="A3. Return Top Results" vertex="1">
+          <mxGeometry height="25" width="180" x="150" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="step-a3-results" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="Results:&#xa;1. return_policy.pdf (0.89)&#xa;2. warranty_terms.pdf (0.82)&#xa;3. refund_process.pdf (0.78)" vertex="1">
+          <mxGeometry height="55" width="120" x="20" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="path-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=11;fontStyle=1;" value="B. Filter Search for Orders" vertex="1">
+          <mxGeometry height="35" width="180" x="390" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="step-b1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="B1. Extract Customer ID from Query" vertex="1">
+          <mxGeometry height="30" width="180" x="390" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="step-b1-details" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="detectCustomerID():&#xa;&#39;CUST001&#39; or&#xa;from session context&#xa;email-based lookup" vertex="1">
+          <mxGeometry height="55" width="110" x="360" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="step-b2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontSize=10;fontStyle=1;" value="B2. Search orders-index (Filter)" vertex="1">
+          <mxGeometry height="30" width="180" x="390" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="step-b2-details" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="Filter:&#xa;customer_id eq &#39;CUST001&#39;&#xa;AND status eq &#39;shipped&#39;&#xa;$orderby order_date desc&#xa;$top 10" vertex="1">
+          <mxGeometry height="65" width="120" x="480" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="step-b3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=10;" value="B3. Return Customer Orders" vertex="1">
+          <mxGeometry height="25" width="180" x="390" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="step-b3-results" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="Results:&#xa;• ORD-12345 ($125.99)&#xa;• ORD-12346 ($89.50)&#xa;Status: Shipped" vertex="1">
+          <mxGeometry height="50" width="120" x="480" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="path-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=11;fontStyle=1;" value="C. Full-Text Search for Products" vertex="1">
+          <mxGeometry height="35" width="190" x="630" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="step-c1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="C1. Parse Search Terms &amp; Filters" vertex="1">
+          <mxGeometry height="30" width="190" x="630" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="step-c1-details" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="Extract:&#xa;• Keywords: &#39;laptop&#39;&#xa;• Category: &#39;Electronics&#39;&#xa;• Price: &lt; $500&#xa;• Facets: brand, rating" vertex="1">
+          <mxGeometry height="65" width="120" x="840" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="step-c2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontSize=10;fontStyle=1;" value="C2. Search products-index (Full-Text)" vertex="1">
+          <mxGeometry height="30" width="190" x="630" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="step-c2-details" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="search=laptop&#xa;$filter=price lt 500&#xa;  and category eq &#39;Electronics&#39;&#xa;searchMode=all&#xa;$count=true" vertex="1">
+          <mxGeometry height="65" width="120" x="840" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="step-c3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=10;" value="C3. Return Product Matches" vertex="1">
+          <mxGeometry height="25" width="190" x="630" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="step-c3-results" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;" value="Results (12 found):&#xa;• Dell Laptop ($449)&#xa;• HP Notebook ($399)&#xa;• Acer Chromebook ($299)" vertex="1">
+          <mxGeometry height="55" width="120" x="840" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="step5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1" value="5. ✅ Context Aggregation (Merge Results)" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="step5-note" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" value="aggregateContext():&#xa;• Deduplicate results&#xa;• Score normalization&#xa;• Sort by relevance&#xa;• Truncate to fit token limit&#xa;• Format for LLM context" vertex="1">
+          <mxGeometry height="85" width="160" x="720" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="step6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=12;fontStyle=1" value="6. ✅ Build LLM Prompt with Context" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="step6-prompt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;fontFamily=Courier New;" value="System Prompt:&#xa;&#39;You are an e-commerce assistant...&#39;&#xa;&#xa;Context:&#xa;{retrieved_documents}&#xa;{customer_data}&#xa;{order_history}&#xa;&#xa;User Query:&#xa;{user_message}" vertex="1">
+          <mxGeometry height="120" width="200" x="210" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="step7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#2e7d32;fontSize=12;fontStyle=1" value="7. ✅ Call Azure OpenAI GPT-4o" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="step7-api" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=8;align=left;fontFamily=Courier New;" value="openai.chat.completions.create({&#xa;  model: &#39;gpt-4o&#39;,&#xa;  messages: promptMessages,&#xa;  temperature: 0.7,&#xa;  max_tokens: 500,&#xa;  stream: true&#xa;})&#xa;&#xa;Deployment: gpt-4o&#xa;Version: 2024-11-20&#xa;Region: East US 2" vertex="1">
+          <mxGeometry height="130" width="180" x="720" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="step8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" value="8. ✅ Stream AI Response to Client" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="step8-stream" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" value="Server-Sent Events (SSE):&#xa;• Chunk-by-chunk streaming&#xa;• Real-time UI update&#xa;• Typing indicator&#xa;• Token-by-token display&#xa;&#xa;Average Latency:&#xa;• First token: 800ms&#xa;• Full response: 1.5s" vertex="1">
+          <mxGeometry height="115" width="200" x="210" y="955" as="geometry" />
+        </mxCell>
+        <mxCell id="step9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#e65100;fontSize=11;" value="9. ✅ Log to Application Insights" vertex="1">
+          <mxGeometry height="30" width="220" x="450" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="step9-log" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" value="Telemetry Data:&#xa;• Request ID&#xa;• Query + Response&#xa;• Latency metrics&#xa;• Indexes searched&#xa;• Token usage&#xa;• User ID (if authenticated)" vertex="1">
+          <mxGeometry height="90" width="170" x="720" y="1025" as="geometry" />
+        </mxCell>
+        <mxCell id="result" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" value="END ✅ Response Displayed in Chat" vertex="1">
+          <mxGeometry height="40" width="220" x="450" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="result-data" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;align=left;" value="User Sees:&#xa;💬 AI response with context&#xa;📦 Order details (if applicable)&#xa;📄 Policy excerpts (if relevant)&#xa;🛍️ Product recommendations&#xa;⭐ Sources cited&#xa;&#xa;Total Time: ~2 seconds" vertex="1">
+          <mxGeometry height="105" width="180" x="720" y="1125" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" target="step1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" source="step1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" target="step2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" source="step2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#ffe6cc;strokeColor=#d79b00;endArrow=classic;endFill=1;" target="step3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" edge="1" parent="1" source="step3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;endArrow=classic;endFill=1;" target="step4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" edge="1" parent="1" source="step4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;endArrow=classic;endFill=1;" target="decision1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-a" edge="1" parent="1" source="decision1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f9d5e5;strokeColor=#c27ba0;endArrow=classic;endFill=1;fontSize=10;fontStyle=1" target="path-a" value="VECTOR">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-b" edge="1" parent="1" source="decision1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#b1ddf0;strokeColor=#10739e;endArrow=classic;endFill=1;fontSize=10;fontStyle=1" target="path-b" value="FILTER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-c" edge="1" parent="1" source="decision1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#b1ddf0;strokeColor=#10739e;endArrow=classic;endFill=1;fontSize=10;fontStyle=1" target="path-c" value="FULL-TEXT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6" edge="1" parent="1" source="path-a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#c8e6c9;strokeColor=#2e7d32;endArrow=classic;endFill=1;dashed=1;" target="step-a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow7" edge="1" parent="1" source="step-a1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#ce93d8;strokeColor=#6a1b9a;endArrow=classic;endFill=1;dashed=1;" target="step-a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow8" edge="1" parent="1" source="step-a2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#f9d5e5;strokeColor=#c27ba0;endArrow=classic;endFill=1;dashed=1;" target="step-a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow9" edge="1" parent="1" source="path-b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#fff2cc;strokeColor=#d6b656;endArrow=classic;endFill=1;dashed=1;" target="step-b1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow10" edge="1" parent="1" source="step-b1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#ce93d8;strokeColor=#6a1b9a;endArrow=classic;endFill=1;dashed=1;" target="step-b2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow11" edge="1" parent="1" source="step-b2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#b1ddf0;strokeColor=#10739e;endArrow=classic;endFill=1;dashed=1;" target="step-b3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow12" edge="1" parent="1" source="path-c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#fff2cc;strokeColor=#d6b656;endArrow=classic;endFill=1;dashed=1;" target="step-c1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow13" edge="1" parent="1" source="step-c1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#ce93d8;strokeColor=#6a1b9a;endArrow=classic;endFill=1;dashed=1;" target="step-c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow14" edge="1" parent="1" source="step-c2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;fillColor=#b1ddf0;strokeColor=#10739e;endArrow=classic;endFill=1;dashed=1;" target="step-c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow15" edge="1" parent="1" source="step-a3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;endArrow=classic;endFill=1;" target="step5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="740" />
+              <mxPoint x="240" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow16" edge="1" parent="1" source="step-b3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;endArrow=classic;endFill=1;" target="step5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow17" edge="1" parent="1" source="step-c3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;endArrow=classic;endFill=1;" target="step5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="725" y="740" />
+              <mxPoint x="680" y="740" />
+              <mxPoint x="680" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow18" edge="1" parent="1" source="step5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#c8e6c9;strokeColor=#2e7d32;endArrow=classic;endFill=1;" target="step6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow19" edge="1" parent="1" source="step6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#c8e6c9;strokeColor=#2e7d32;endArrow=classic;endFill=1;" target="step7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow20" edge="1" parent="1" source="step7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" target="step8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow21" edge="1" parent="1" source="step8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;endArrow=classic;endFill=1;" target="step9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow22" edge="1" parent="1" source="step9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;endArrow=classic;endFill=1;" target="result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" value="LEGEND" vertex="1">
+          <mxGeometry height="30" width="100" x="970" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" parent="1" style="text;html=1;strokeColor=#6c8ebf;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="─────▶ Data Flow" vertex="1">
+          <mxGeometry height="20" width="150" x="970" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" parent="1" style="text;html=1;strokeColor=#c27ba0;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;dashed=1;" value="- - - - ▶ API/Service Call" vertex="1">
+          <mxGeometry height="20" width="160" x="970" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="970" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;" value="✅ Implemented" vertex="1">
+          <mxGeometry height="20" width="120" x="995" y="173" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="970" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Next.js UI" vertex="1">
+          <mxGeometry height="20" width="100" x="995" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="legend5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="970" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="legend5-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Azure OpenAI" vertex="1">
+          <mxGeometry height="20" width="100" x="995" y="213" as="geometry" />
+        </mxCell>
+        <mxCell id="legend6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="970" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="legend6-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Azure AI Search" vertex="1">
+          <mxGeometry height="20" width="120" x="995" y="233" as="geometry" />
+        </mxCell>
+        <mxCell id="legend7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="970" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="legend7-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Vector Search" vertex="1">
+          <mxGeometry height="20" width="100" x="995" y="253" as="geometry" />
+        </mxCell>
+        <mxCell id="legend8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="970" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="legend8-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Filter/Full-Text" vertex="1">
+          <mxGeometry height="20" width="100" x="995" y="273" as="geometry" />
+        </mxCell>
+        <mxCell id="legend9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="15" width="20" x="970" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="legend9-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" value="Processing/Utils" vertex="1">
+          <mxGeometry height="20" width="120" x="995" y="293" as="geometry" />
+        </mxCell>
+        <mxCell id="wWD2_3X6qLJl-QHeD8Vs-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;color: rgb(0, 76, 153);&quot;&gt;&lt;b&gt;@pramodklal&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="190" x="470" y="1260" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

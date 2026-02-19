@@ -1,0 +1,343 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="Hybrid RAG Architecture" id="architecture">
+    <mxGraphModel dx="1955" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fillColor=#d5e8d4;" value="Hybrid RAG E-Commerce Chatbot System (IMPLEMENTED)" vertex="1">
+          <mxGeometry height="40" width="700" x="250" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" value="Next.js 16 | Azure OpenAI | Azure AI Search | 6 Specialized Indexes | Vector + Filter + Full-Text Search" vertex="1">
+          <mxGeometry height="20" width="700" x="250" y="55" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 1: UI Layer -->
+        <mxCell id="layer1-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" value="" vertex="1">
+          <mxGeometry height="80" width="1040" x="80" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="UI Layer - NEXT.JS 16 (App Router)" vertex="1">
+          <mxGeometry height="30" width="350" x="265" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ui1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="✅ AI Chat Widget&#xa;(Real-time)" vertex="1">
+          <mxGeometry height="35" width="130" x="120" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="ui2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="✅ Dashboard&#xa;(Stats)" vertex="1">
+          <mxGeometry height="35" width="120" x="270" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="ui3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="✅ Product&#xa;Search" vertex="1">
+          <mxGeometry height="35" width="110" x="410" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="ui4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="✅ Order&#xa;Management" vertex="1">
+          <mxGeometry height="35" width="100" x="540" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="ui5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="✅ Returns&#xa;Tracking" vertex="1">
+          <mxGeometry height="35" width="100" x="660" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="react-info" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" value="React 18.3 + TypeScript&#xa;Tailwind CSS" vertex="1">
+          <mxGeometry height="35" width="140" x="780" y="125" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 2: API Routes Layer -->
+        <mxCell id="layer2-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;opacity=50;" value="" vertex="1">
+          <mxGeometry height="100" width="1040" x="80" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="API Routes Layer (Next.js /app/api)" vertex="1">
+          <mxGeometry height="30" width="350" x="255" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="api1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;verticalAlign=top;" value="✅ /api/chat" vertex="1">
+          <mxGeometry height="50" width="120" x="120" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="api1-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Hybrid RAG&#xa;Query Processing" vertex="1">
+          <mxGeometry height="25" width="120" x="120" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="api2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" value="✅ /api/products" vertex="1">
+          <mxGeometry height="50" width="100" x="260" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="api2-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Search&#xa;Products" vertex="1">
+          <mxGeometry height="25" width="100" x="260" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="api3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" value="✅ /api/orders" vertex="1">
+          <mxGeometry height="50" width="90" x="380" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="api3-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Order&#xa;Queries" vertex="1">
+          <mxGeometry height="25" width="90" x="380" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="api4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" value="✅ /api/returns" vertex="1">
+          <mxGeometry height="50" width="90" x="490" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="api4-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Return&#xa;Status" vertex="1">
+          <mxGeometry height="25" width="90" x="490" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="api5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" value="✅ /api/dashboard" vertex="1">
+          <mxGeometry height="50" width="110" x="600" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="api5-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Analytics&#xa;Stats" vertex="1">
+          <mxGeometry height="25" width="110" x="600" y="255" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 3: Hybrid RAG Intelligence Layer -->
+        <mxCell id="layer3-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;" value="" vertex="1">
+          <mxGeometry height="120" width="1040" x="80" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Hybrid RAG Intelligence Layer" vertex="1">
+          <mxGeometry height="30" width="300" x="325" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="rag-strategy-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=center;fontStyle=1;" value="Search Strategies (IMPLEMENTED)" vertex="1">
+          <mxGeometry height="90" width="390" x="120" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="strategy1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;fontStyle=1;verticalAlign=top;" value="✅ Vector Search" vertex="1">
+          <mxGeometry height="55" width="110" x="135" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="strategy1-feature" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Semantic&#xa;Embeddings&#xa;3072D" vertex="1">
+          <mxGeometry height="30" width="110" x="135" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="strategy2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="✅ Filter Search" vertex="1">
+          <mxGeometry height="55" width="110" x="260" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="strategy2-feature" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Customer ID&#xa;Order Status&#xa;Price Range" vertex="1">
+          <mxGeometry height="30" width="110" x="260" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="strategy3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;verticalAlign=top;" value="✅ Full-Text" vertex="1">
+          <mxGeometry height="55" width="110" x="385" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="strategy3-feature" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="Keyword&#xa;Search&#xa;Products" vertex="1">
+          <mxGeometry height="30" width="110" x="385" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="context-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;align=center;fontStyle=1;" value="Context Processing" vertex="1">
+          <mxGeometry height="90" width="220" x="530" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="context1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Keyword&#xa;Detection" vertex="1">
+          <mxGeometry height="35" width="80" x="545" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="context2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Context&#xa;Aggregation" vertex="1">
+          <mxGeometry height="35" width="80" x="645" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="context-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=1" value="Merge multi-source results" vertex="1">
+          <mxGeometry height="20" width="190" x="545" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="llm-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;verticalAlign=top;align=center;fontStyle=1;" value="Response Generation" vertex="1">
+          <mxGeometry height="90" width="220" x="770" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="llm1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#2e7d32;fontStyle=1;verticalAlign=top;" value="✅ GPT-4o" vertex="1">
+          <mxGeometry height="55" width="190" x="785" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="llm1-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=7;fontStyle=2" value="2024-11-20&#xa;50K TPM&#xa;Context-aware responses" vertex="1">
+          <mxGeometry height="30" width="190" x="785" y="385" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 4: Azure OpenAI Layer -->
+        <mxCell id="layer4-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;opacity=50;" value="" vertex="1">
+          <mxGeometry height="90" width="1040" x="80" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Azure OpenAI Layer (pramo-mloh6paf-eastus2)" vertex="1">
+          <mxGeometry height="30" width="400" x="280" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="openai1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#2e7d32;fontStyle=1;verticalAlign=top;" value="✅ GPT-4o Deployment" vertex="1">
+          <mxGeometry height="60" width="180" x="120" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="openai1-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Model: 2024-11-20&#xa;• Type: Global Standard&#xa;• Capacity: 50K TPM&#xa;• Use: Chat completions" vertex="1">
+          <mxGeometry height="40" width="170" x="125" y="508" as="geometry" />
+        </mxCell>
+        <mxCell id="openai2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;strokeColor=#2e7d32;fontStyle=1;verticalAlign=top;" value="✅ text-embedding-3-large" vertex="1">
+          <mxGeometry height="60" width="190" x="320" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="openai2-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Dimensions: 3072&#xa;• Type: Global Standard&#xa;• Capacity: 150K TPM&#xa;• Use: Vector embeddings" vertex="1">
+          <mxGeometry height="40" width="180" x="325" y="508" as="geometry" />
+        </mxCell>
+        <mxCell id="openai3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;verticalAlign=top;" value="Azure OpenAI Client" vertex="1">
+          <mxGeometry height="60" width="150" x="530" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="openai3-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• API Version: 2024-02-15&#xa;• Streaming support&#xa;• Rate limiting&#xa;• Error handling" vertex="1">
+          <mxGeometry height="40" width="140" x="535" y="508" as="geometry" />
+        </mxCell>
+        <mxCell id="openai-endpoint" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2" value="Endpoint: eastus2.cognitiveservices.azure.com" vertex="1">
+          <mxGeometry height="20" width="280" x="700" y="505" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 5: Azure AI Search Layer -->
+        <mxCell id="layer5-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#6a1b9a;opacity=50;" value="" vertex="1">
+          <mxGeometry height="110" width="1040" x="80" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="layer5-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Azure AI Search Layer (search-ecommerce-chatbot)" vertex="1">
+          <mxGeometry height="30" width="400" x="255" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="search1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontStyle=1;verticalAlign=top;" value="✅ documents-index" vertex="1">
+          <mxGeometry height="65" width="150" x="120" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="search1-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Vector: 3072D&#xa;• HNSW algorithm&#xa;• PDF policies/docs&#xa;• Cosine similarity" vertex="1">
+          <mxGeometry height="45" width="140" x="125" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="search2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontStyle=1;verticalAlign=top;" value="✅ customers-index" vertex="1">
+          <mxGeometry height="65" width="145" x="290" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="search2-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Customer profiles&#xa;• Filter by ID&#xa;• Email search&#xa;• 1000+ records" vertex="1">
+          <mxGeometry height="45" width="135" x="295" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="search3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontStyle=1;verticalAlign=top;" value="✅ products-index" vertex="1">
+          <mxGeometry height="65" width="140" x="455" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="search3-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Full-text search&#xa;• Price filters&#xa;• Category facets&#xa;• 500+ products" vertex="1">
+          <mxGeometry height="45" width="130" x="460" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="search4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontStyle=1;verticalAlign=top;" value="✅ orders-index" vertex="1">
+          <mxGeometry height="65" width="135" x="615" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="search4-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Order history&#xa;• Date filters&#xa;• Status search&#xa;• 5000+ orders" vertex="1">
+          <mxGeometry height="45" width="125" x="620" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="search5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontStyle=1;verticalAlign=top;" value="✅ inventory-index" vertex="1">
+          <mxGeometry height="65" width="130" x="770" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="search5-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Stock levels&#xa;• SKU lookup&#xa;• Warehouse data" vertex="1">
+          <mxGeometry height="45" width="120" x="775" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="search6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;strokeColor=#6a1b9a;fontStyle=1;verticalAlign=top;" value="✅ returns-index" vertex="1">
+          <mxGeometry height="65" width="130" x="920" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="search6-details" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=7;" value="• Return tracking&#xa;• Status updates&#xa;• Reason analysis" vertex="1">
+          <mxGeometry height="45" width="120" x="925" y="613" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 6: Storage & Data Layer -->
+        <mxCell id="layer6-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffccbc;strokeColor=#bf360c;opacity=50;" value="" vertex="1">
+          <mxGeometry height="70" width="1040" x="80" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="layer6-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Storage &amp; Data Layer (stecomchatbot)" vertex="1">
+          <mxGeometry height="30" width="350" x="249" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="storage1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffab91;strokeColor=#bf360c;fontStyle=1;verticalAlign=top;" value="✅ Azure File Share" vertex="1">
+          <mxGeometry height="30" width="160" x="120" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="storage1-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" value="ecommerce-pdfs" vertex="1">
+          <mxGeometry height="15" width="160" x="120" y="738" as="geometry" />
+        </mxCell>
+        <mxCell id="storage2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffab91;strokeColor=#bf360c;fontStyle=1;verticalAlign=top;" value="✅ Table Storage" vertex="1">
+          <mxGeometry height="30" width="150" x="300" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="storage2-detail" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" value="Legacy CSV data" vertex="1">
+          <mxGeometry height="15" width="150" x="300" y="738" as="geometry" />
+        </mxCell>
+        <mxCell id="storage3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Azure Storage Client" vertex="1">
+          <mxGeometry height="30" width="140" x="470" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="storage4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="File Upload&#xa;Processing" vertex="1">
+          <mxGeometry height="30" width="130" x="630" y="720" as="geometry" />
+        </mxCell>
+        
+        <!-- LAYER 7: Monitoring & Observability -->
+        <mxCell id="layer7-bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;opacity=50;" value="" vertex="1">
+          <mxGeometry height="60" width="1040" x="80" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="layer7-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Monitoring &amp; Observability Layer" vertex="1">
+          <mxGeometry height="30" width="350" x="249" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#e65100;fontStyle=1;" value="✅ Application Insights" vertex="1">
+          <mxGeometry height="25" width="170" x="120" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#e65100;" value="Request Telemetry" vertex="1">
+          <mxGeometry height="25" width="140" x="310" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#e65100;" value="Error Tracking" vertex="1">
+          <mxGeometry height="25" width="120" x="470" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc80;strokeColor=#e65100;" value="Performance Metrics" vertex="1">
+          <mxGeometry height="25" width="140" x="610" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Correlation IDs" vertex="1">
+          <mxGeometry height="25" width="120" x="770" y="810" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="arrow1" edge="1" parent="1" source="ui1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" target="api1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" source="api1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" target="rag-strategy-box" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" source="strategy1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#c8e6c9;strokeColor=#2e7d32;" target="openai2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" edge="1" parent="1" source="llm1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#c8e6c9;strokeColor=#2e7d32;" target="openai1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" edge="1" parent="1" source="strategy1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#e1bee7;strokeColor=#6a1b9a;" target="search1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6" edge="1" parent="1" source="strategy2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#e1bee7;strokeColor=#6a1b9a;" target="search2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow7" edge="1" parent="1" source="search1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#ffccbc;strokeColor=#bf360c;" target="storage1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;dashed=1;" value="" vertex="1">
+          <mxGeometry height="450" width="160" x="-220" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" value="LEGEND" vertex="1">
+          <mxGeometry height="25" width="160" x="-220" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-implemented-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-implemented-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="✅ Implemented" vertex="1">
+          <mxGeometry height="20" width="120" x="-175" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-ui-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-ui-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="UI Layer" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-api-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-api-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="API Layer" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-rag-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-rag-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Hybrid RAG" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-openai-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-openai-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Azure OpenAI" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-search-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#6a1b9a;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-search-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="AI Search" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-storage-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffccbc;strokeColor=#bf360c;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-storage-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Storage" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-vector-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9d5e5;strokeColor=#c27ba0;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-vector-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Vector Search" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-monitor-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;" value="" vertex="1">
+          <mxGeometry height="20" width="30" x="-210" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-monitor-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" value="Monitoring" vertex="1">
+          <mxGeometry height="20" width="100" x="-175" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-tech" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=8;fontStyle=2;" value="Tech Stack:&#xa;• Next.js 16.1.6&#xa;• React 18.3 + TS&#xa;• Azure OpenAI&#xa;• Azure AI Search&#xa;• 6 Specialized Indexes&#xa;• 3072D embeddings&#xa;• GPT-4o &amp; embeddings" vertex="1">
+          <mxGeometry height="120" width="150" x="-210" y="655" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

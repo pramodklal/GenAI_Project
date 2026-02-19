@@ -1,0 +1,16 @@
+product_id,name,category,price,description,stock_quantity,reorder_level,return_eligible,return_window_days,return_policy,warranty_months,created_at,updated_at
+PROD-001,Wireless Bluetooth Headphones,Electronics,79.99,Premium noise-canceling headphones with 30-hour battery life,150,20,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,12,2024-01-15T10:00:00Z,2024-01-15T10:00:00Z
+PROD-002,Smart Watch Series 5,Electronics,299.99,Fitness tracker with heart rate monitor and GPS,75,15,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,24,2024-01-10T09:00:00Z,2024-01-10T09:00:00Z
+PROD-003,Wireless Mouse,Electronics,24.99,Ergonomic wireless mouse with 6-month battery life,200,30,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,6,2024-01-12T11:00:00Z,2024-01-12T11:00:00Z
+PROD-004,USB-C Charging Cable,Electronics,12.99,Fast charging cable 6ft braided nylon,300,50,TRUE,30,30-day return for unopened items only,3,2024-01-08T14:00:00Z,2024-01-08T14:00:00Z
+PROD-005,Laptop Stand,Office,45.99,Adjustable aluminum laptop stand for better ergonomics,100,20,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,12,2024-01-05T08:00:00Z,2024-01-05T08:00:00Z
+PROD-006,Mechanical Keyboard,Electronics,129.99,RGB backlit mechanical gaming keyboard,60,10,TRUE,30,30-day return for unopened items; 20% restocking fee if opened,24,2024-01-14T10:00:00Z,2024-01-14T10:00:00Z
+PROD-007,Desk Lamp LED,Office,34.99,Adjustable LED desk lamp with USB charging port,120,25,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,12,2024-01-11T09:00:00Z,2024-01-11T09:00:00Z
+PROD-008,Phone Case iPhone 15,Accessories,19.99,Protective silicone case with camera protection,250,40,TRUE,14,14-day return for unopened items only; accessories have shorter window,0,2024-01-13T12:00:00Z,2024-01-13T12:00:00Z
+PROD-009,Portable Charger 20000mAh,Electronics,39.99,Fast charging portable battery pack with dual USB ports,80,15,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,12,2024-01-09T10:00:00Z,2024-01-09T10:00:00Z
+PROD-010,Webcam HD 1080p,Electronics,59.99,Full HD webcam with built-in microphone for video calls,90,15,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,12,2024-01-07T11:00:00Z,2024-01-07T11:00:00Z
+PROD-011,Yoga Mat Premium,Fitness,29.99,Non-slip exercise mat with carrying strap,150,30,TRUE,30,30-day return for unopened items only; hygiene product,6,2024-01-06T09:00:00Z,2024-01-06T09:00:00Z
+PROD-012,Water Bottle Insulated,Fitness,24.99,Stainless steel vacuum insulated bottle 32oz,180,35,TRUE,30,30-day return for unopened items only; hygiene product,12,2024-01-10T10:00:00Z,2024-01-10T10:00:00Z
+PROD-013,Bluetooth Speaker,Electronics,49.99,Waterproof portable speaker with 12-hour battery,110,20,TRUE,30,30-day return for unopened items; 15% restocking fee if opened,12,2024-01-12T13:00:00Z,2024-01-12T13:00:00Z
+PROD-014,Monitor 27 inch 4K,Electronics,399.99,4K UHD monitor with HDR support and USB-C,40,8,TRUE,30,30-day return; 20% restocking fee if opened; dead pixel policy applies,36,2024-01-15T11:00:00Z,2024-01-15T11:00:00Z
+PROD-015,Desk Organizer,Office,18.99,Bamboo desk organizer with phone holder,200,40,TRUE,30,30-day return for unopened items only,6,2024-01-08T15:00:00Z,2024-01-08T15:00:00Z

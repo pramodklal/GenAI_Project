@@ -1,0 +1,214 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.6">
+  <diagram name="Hybrid RAG Architecture" id="hybrid-rag-arch">
+    <mxGraphModel dx="786" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" value="Hybrid RAG E-Commerce Chatbot - Technical Architecture" vertex="1">
+          <mxGeometry height="40" width="560" x="320" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="client-layer" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E1F5FF;strokeColor=#0277BD;fontSize=14;fontStyle=1" value="CLIENT LAYER" vertex="1">
+          <mxGeometry height="150" width="280" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="browser" parent="client-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#0277BD;" value="Web Browser" vertex="1">
+          <mxGeometry height="40" width="240" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend" parent="client-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#0277BD;" value="Next.js Frontend&#xa;React 18 + TypeScript" vertex="1">
+          <mxGeometry height="45" width="240" x="20" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="app-layer" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;fontSize=14;fontStyle=1" value="APPLICATION LAYER - Next.js 16" vertex="1">
+          <mxGeometry height="280" width="300" x="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="api-chat" parent="app-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD54F;strokeColor=#F57F17;fontStyle=1" value="/api/chat&#xa;Main Chat Handler" vertex="1">
+          <mxGeometry height="45" width="260" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="api-upload-pdf" parent="app-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;" value="/api/admin/upload-pdf&#xa;PDF Upload Handler" vertex="1">
+          <mxGeometry height="45" width="125" x="20" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="api-upload-csv" parent="app-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;" value="/api/admin/upload-csv&#xa;CSV Upload Handler" vertex="1">
+          <mxGeometry height="45" width="125" x="155" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="keyword-detector" parent="app-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#F57F17;" value="Keyword Detector&#xa;Query Analyzer" vertex="1">
+          <mxGeometry height="45" width="125" x="20" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="context-aggregator" parent="app-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#F57F17;" value="Context Aggregator&#xa;Response Builder" vertex="1">
+          <mxGeometry height="45" width="125" x="155" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dashboard-api" parent="app-layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;" value="Dashboard APIs&#xa;/api/dashboard/stats" vertex="1">
+          <mxGeometry height="45" width="260" x="20" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-openai" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontSize=14;fontStyle=1" value="AZURE OPENAI SERVICE (East US 2)" vertex="1">
+          <mxGeometry height="150" width="420" x="700" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gpt4o" parent="azure-openai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#81C784;strokeColor=#2E7D32;fontStyle=1" value="GPT-4o Deployment&#xa;Model: gpt-4o (2024-11-20)&#xa;Type: Global Standard&#xa;Capacity: 50K TPM" vertex="1">
+          <mxGeometry height="90" width="180" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="embeddings" parent="azure-openai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#81C784;strokeColor=#2E7D32;fontStyle=1" value="text-embedding-3-large&#xa;Type: Global Standard&#xa;Capacity: 150K TPM&#xa;Dimensions: 3072" vertex="1">
+          <mxGeometry height="90" width="180" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-search" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontSize=14;fontStyle=1" value="AZURE AI SEARCH SERVICE" vertex="1">
+          <mxGeometry height="280" width="420" x="700" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="idx-documents" parent="azure-search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BA68C8;strokeColor=#6A1B9A;fontStyle=1" value="ecommerce-documents-index&#xa;Vector Search (HNSW)&#xa;Keyword Search&#xa;PDFs: Policies, FAQs" vertex="1">
+          <mxGeometry height="70" width="180" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="idx-customers" parent="azure-search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;" value="ecommerce-customers-index&#xa;Filter Search&#xa;OData Filters" vertex="1">
+          <mxGeometry height="60" width="180" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="idx-products" parent="azure-search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;" value="ecommerce-products-index&#xa;Full-Text Search&#xa;TF-IDF Ranking" vertex="1">
+          <mxGeometry height="60" width="180" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="idx-orders" parent="azure-search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;" value="ecommerce-orders-index&#xa;Filterable (status, date)" vertex="1">
+          <mxGeometry height="50" width="180" x="220" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="idx-inventory" parent="azure-search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;" value="ecommerce-inventory-index&#xa;Filterable (quantity)" vertex="1">
+          <mxGeometry height="50" width="180" x="20" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="idx-returns" parent="azure-search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#6A1B9A;" value="ecommerce-returns-index&#xa;Filterable (status, date)" vertex="1">
+          <mxGeometry height="50" width="180" x="220" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-storage" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFCCBC;strokeColor=#BF360C;fontSize=14;fontStyle=1" value="AZURE STORAGE" vertex="1">
+          <mxGeometry height="120" width="420" x="700" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="file-share" parent="azure-storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8A65;strokeColor=#BF360C;fontStyle=1" value="File Share&#xa;ecommerce-pdfs&#xa;PDF Documents Storage" vertex="1">
+          <mxGeometry height="60" width="180" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="table-storage" parent="azure-storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFAB91;strokeColor=#BF360C;" value="Table Storage&#xa;Legacy Structured Data" vertex="1">
+          <mxGeometry height="60" width="180" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="processing" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F57F17;fontSize=14;fontStyle=1" value="DATA PROCESSING PIPELINE" vertex="1">
+          <mxGeometry height="300" width="300" x="360" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="pdf-extractor" parent="processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEE58;strokeColor=#F57F17;" value="PDF Text Extractor&#xa;(pdf2json)" vertex="1">
+          <mxGeometry height="40" width="260" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="chunker" parent="processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF176;strokeColor=#F57F17;" value="Text Chunker&#xa;tiktoken (300 tokens/chunk)" vertex="1">
+          <mxGeometry height="40" width="260" x="20" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="embedding-gen" parent="processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;" value="Generate Embeddings&#xa;Batch Processing" vertex="1">
+          <mxGeometry height="40" width="260" x="20" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="csv-parser" parent="processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEE58;strokeColor=#F57F17;" value="CSV Parser&#xa;Data Transformer" vertex="1">
+          <mxGeometry height="40" width="260" x="20" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="index-uploader" parent="processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF176;strokeColor=#F57F17;" value="Index Uploader&#xa;Batch Upload to AI Search" vertex="1">
+          <mxGeometry height="40" width="260" x="20" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="monitoring" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=14;fontStyle=1" value="MONITORING &amp; OBSERVABILITY" vertex="1">
+          <mxGeometry height="140" width="280" x="40" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="app-insights" parent="monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;fontStyle=1" value="Application Insights&#xa;Telemetry &amp; Logging" vertex="1">
+          <mxGeometry height="40" width="240" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="metrics" parent="monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCC80;strokeColor=#E65100;align=left;" value="Metrics Dashboard&#xa;• Response Time&#xa;• Token Usage&#xa;• Error Rate" vertex="1">
+          <mxGeometry height="40" width="240" x="20" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="rag-strategies" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#B2DFDB;strokeColor=#00695C;fontSize=14;fontStyle=1" value="HYBRID RAG STRATEGIES" vertex="1">
+          <mxGeometry height="130" width="280" x="40" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="vector-search" parent="rag-strategies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80CBC4;strokeColor=#00695C;fontStyle=0" value="Vector Search&#xa;Semantic Similarity (PDF)" vertex="1">
+          <mxGeometry height="25" width="240" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="filter-search" parent="rag-strategies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80CBC4;strokeColor=#00695C;fontStyle=0" value="Filter Search&#xa;Exact Match (Customers)" vertex="1">
+          <mxGeometry height="25" width="240" x="20" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="fulltext-search" parent="rag-strategies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80CBC4;strokeColor=#00695C;fontStyle=0" value="Full-Text Search&#xa;Keyword Matching (Products)" vertex="1">
+          <mxGeometry height="25" width="240" x="20" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1" edge="1" parent="1" source="frontend" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0277BD;" target="api-chat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-label" connectable="0" parent="arrow-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0277BD;fontStyle=1" value="POST /api/chat" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-2" edge="1" parent="1" source="api-chat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#F57F17;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="keyword-detector">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-3" edge="1" parent="1" source="api-chat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E7D32;" target="gpt4o">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-3-label" connectable="0" parent="arrow-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#2E7D32;fontStyle=1" value="Generate Response" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-4" edge="1" parent="1" source="api-chat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E7D32;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="embeddings">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1010" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-4-label" connectable="0" parent="arrow-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#2E7D32;fontStyle=1" value="Generate Embeddings" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="10" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-5" edge="1" parent="1" source="embeddings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6A1B9A;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="idx-documents">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-5-label" connectable="0" parent="arrow-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6A1B9A;fontStyle=1" value="Vector Search" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-6" edge="1" parent="1" source="context-aggregator" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6A1B9A;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="idx-customers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-6-label" connectable="0" parent="arrow-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6A1B9A;fontStyle=1" value="Query Indexes" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-7" edge="1" parent="1" source="pdf-extractor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#BF360C;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="file-share">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-7-label" connectable="0" parent="arrow-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#BF360C;fontStyle=1" value="Store PDFs" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-8" edge="1" parent="1" source="index-uploader" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6A1B9A;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="idx-products">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-8-label" connectable="0" parent="arrow-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6A1B9A;fontStyle=1" value="Upload Documents" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-9" edge="1" parent="1" source="api-chat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E65100;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="app-insights">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-9-label" connectable="0" parent="arrow-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#E65100;fontStyle=1" value="Log Events" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontSize=12;fontStyle=1" value="LEGEND" vertex="1">
+          <mxGeometry height="110" width="280" x="40" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-client" parent="legend" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#E1F5FF;strokeColor=#0277BD;" value="■ Client Layer" vertex="1">
+          <mxGeometry height="20" width="120" x="10" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-api" parent="legend" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#FFF9C4;strokeColor=#F57F17;" value="■ Application/API" vertex="1">
+          <mxGeometry height="20" width="120" x="140" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-openai" parent="legend" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#C8E6C9;strokeColor=#2E7D32;" value="■ Azure OpenAI" vertex="1">
+          <mxGeometry height="20" width="120" x="10" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-search" parent="legend" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#E1BEE7;strokeColor=#6A1B9A;" value="■ Azure AI Search" vertex="1">
+          <mxGeometry height="20" width="120" x="140" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-storage" parent="legend" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#FFCCBC;strokeColor=#BF360C;" value="■ Azure Storage" vertex="1">
+          <mxGeometry height="20" width="120" x="10" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-monitor" parent="legend" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#FFE0B2;strokeColor=#E65100;" value="■ Monitoring" vertex="1">
+          <mxGeometry height="20" width="120" x="140" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" parent="1" style="text;html=1;strokeColor=none;fillColor=#ECEFF1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2" value="Azure Region: East US 2  |  Tech Stack: Next.js 16 + TypeScript + React 18 + Azure OpenAI + Azure AI Search  |  Deployment: Global Standard" vertex="1">
+          <mxGeometry height="30" width="1080" x="40" y="720" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
